@@ -5,4 +5,4 @@ It all in one file to make download and usage as easy as possible.
 
 This is the TEST page only at present.
 
-We will soon publish manuscript and vinegette.
+We will soon publish manuscript and vignette.
