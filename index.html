@@ -3392,7 +3392,7 @@ function url_to_read_clicked(this_button) {
       url,
       msg = "";
 
-  if (url_to_read.indexOf('www.') === 0) url_to_read = 'http://'+url_to_read; // or 'https://'
+  if (url_to_read.indexOf('www.') === 0) url_to_read = 'https://'+url_to_read; // or 'http://' but 'https://' is needed for dropbox.
 
   // alert("url_to_read: "+url_to_read);
 
