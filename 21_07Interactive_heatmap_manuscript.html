@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8" />
+<title></title>
+
+<meta name="author" content="David Simpson" />
+<style type="text/css">
+.Normal {
+line-height:108%;
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:8.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:11.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+h1 {
+line-height:108%;
+margin:1.0pt;
+margin-top:12.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri Light";
+font-size:16.0pt;
+color:#2F5496;
+font-weight:normal;
+border:none;
+}
+h2 {
+line-height:108%;
+margin:1.0pt;
+margin-top:2.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri Light";
+font-size:13.0pt;
+color:#2F5496;
+font-weight:normal;
+border:none;
+}
+h3 {
+line-height:108%;
+margin:1.0pt;
+margin-top:2.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri Light";
+font-size:12.0pt;
+color:#1F3763;
+font-weight:normal;
+border:none;
+}
+.annotationtext {
+mso-style-name:"annotation text";
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:8.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.annotationsubject {
+mso-style-name:"annotation subject";
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:8.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:bold;
+border:none;
+}
+.ListParagraph {
+mso-style-name:"List Paragraph";
+line-height:108%;
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:8.0pt;
+margin-left:36.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:11.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.Revision {
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:11.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.Bio_Head1 {
+line-height:108%;
+margin:1.0pt;
+margin-top:12.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Source Sans Pro";
+font-size:14.0pt;
+color:Black;
+font-weight:bold;
+border:none;
+}
+.chapter_para {
+mso-style-name:"chapter-para";
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:5.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Times New Roman";
+font-size:12.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.Bio_Head2 {
+line-height:108%;
+margin:1.0pt;
+margin-top:12.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Source Sans Pro";
+font-size:12.0pt;
+color:Black;
+font-weight:bold;
+border:none;
+}
+.Bio_Head3 {
+line-height:108%;
+margin:1.0pt;
+margin-top:12.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Source Sans Pro";
+font-size:11.0pt;
+color:Black;
+font-weight:bold;
+border:none;
+}
+.EndnoteText {
+mso-style-name:"Endnote Text";
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.EndNoteBibliographyTitle {
+mso-style-name:"EndNote Bibliography Title";
+line-height:108%;
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+text-align:center;
+font-family:"Calibri";
+font-size:11.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.EndNoteBibliography {
+mso-style-name:"EndNote Bibliography";
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:8.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:11.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.CommentText {
+mso-style-name:"Comment Text";
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.CommentSubject {
+mso-style-name:"Comment Subject";
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:bold;
+border:none;
+}
+.Hyperlink {
+color:#0563C1;}
+.Unresolved_Mention {
+background:#E1DFDD;color:#605E5C;}
+.annotation_reference {
+font-size:8.0pt;}
+.Comment_Text_Char {
+font-size:10.0pt;}
+.Comment_Subject_Char {
+font-size:10.0pt;font-weight:bold;}
+.FollowedHyperlink {
+color:#954F72;}
+.Heading_1_Char {
+color:#2F5496;font-size:16.0pt;font-family:"Calibri Light";}
+.Heading_2_Char {
+color:#2F5496;font-size:13.0pt;font-family:"Calibri Light";}
+.Bio_Head1_Char {
+color:Black;font-size:14.0pt;font-family:"Source Sans Pro";font-weight:bold;}
+.Heading_3_Char {
+color:#1F3763;font-size:12.0pt;font-family:"Calibri Light";}
+.Bio_Head2_Char {
+color:Black;font-size:12.0pt;font-family:"Source Sans Pro";font-weight:bold;}
+.Bio_Head3_Char {
+color:Black;font-size:12.0pt;font-family:"Source Sans Pro";font-weight:bold;}
+.Endnote_Text_Char {
+font-size:10.0pt;}
+.Endnote_Reference {
+}
+.EndNote_Bibliography_Title_Char {
+}
+.EndNote_Bibliography_Char {
+}
+.PageBreak {
+page-break-after:always;
+}
+.tm34 {
+text-align:center;
+}
+.tm35 {
+font-weight:bold;
+}
+.tm37 {
+text-align:justify;
+}
+.tm38 {
+font-style:italic;
+}
+.tm39 {
+color:Gray;
+}
+.tm40 {
+font-family:"Calibri";
+}
+.tm41 {
+margin-bottom:1.0pt;
+margin-left:36.0pt;
+line-height:100%;
+text-align:justify;
+}
+.tm42 {
+font-size:10.0pt;
+font-family:"Consolas";
+}
+.tm43 {
+font-style:italic;
+font-size:10.0pt;
+font-family:"Consolas";
+}
+.tm44 {
+margin-bottom:1.0pt;
+margin-left:36.0pt;
+text-indent:-36.0pt;
+}
+.tm45 {
+margin-left:36.0pt;
+text-indent:-36.0pt;
+}
+.tm46 {
+color:#767171;
+}
+.tm47 {
+color:#767171;
+font-size:16.0pt;
+}
+.tm48 {
+color:#767171;
+font-weight:bold;
+}
+.tm49 {
+color:Gray;
+font-size:16.0pt;
+font-weight:bold;
+}
+.tm50 {
+margin-left:36.0pt;
+text-indent:-18.0pt;
+}
+.tm51 {
+color:#767171;
+font-size:10.0pt;
+font-family:"Symbol";
+}
+.tm52 {
+font-style:italic;
+color:#767171;
+}
+.tm53 {
+color:Gray;
+font-weight:bold;
+}
+.tm54 {
+font-style:italic;
+color:Gray;
+font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+<p class="Normal">&#160;</p>
+<p class="Normal tm34">Version: &#8220;21_07Interactive_heatmap_manuscript.doc&#8221;</p>
+<p class="Normal tm34">21 July 2023, SJB edits added. </p>
+<p class="Normal">&#160;</p>
+<p class="Normal"><strong><span class="tm35">Title Page</span></strong></p>
+<p class="Normal"><strong><span class="tm35">HIVE browser: a user-friendly tool for interactive viewing and analysis of gene expression data</span></strong></p>
+<p class="Normal">Stephen Bridgett, Sara El jadid, Guillermo Lopez-Campos, David A Simpson</p>
+<p class="Normal">&#160;</p>
+<p class="Normal">s.bridgett@qub.ac.uk</p>
+<p class="Normal">s.eljadid@qub.ac.uk</p>
+<p class="Normal">g.lopezcampos@qub.ac.uk</p>
+<p class="Normal">david.simpson@qub.ac.uk</p>
+<p class="Normal">&#160;</p>
+<p class="Normal">Wellcome-Wolfson Institute for Experimental Medicine</p>
+<p class="Normal">School of Medicine, Dentistry and Biomedical Sciences</p>
+<p class="Normal">Queen&#8217;s University Belfast</p>
+<p class="Normal">97 Lisburn Road</p>
+<p class="Normal">Belfast</p>
+<p class="Normal">BT9 7BL</p>
+<p class="Normal">&#160;</p>
+<p class="Normal"><strong><span class="tm35">ORCID IDs</span></strong></p>
+<p class="Normal">David Simpson: 0000-0003-0157-1211</p>
+<p class="Normal">Stephen Bridgett:  0000-0001-9330-5820</p>
+<p class="Normal">Sara El jadid: 0000-0001-9793-5061</p>
+<p class="Normal">Guillermo Lopez-Campos: 0000-0003-3011-0940</p>
+<p class="Normal PageBreak">&#160;</p>
+<p class="Bio_Head1"><strong>Abstract </strong></p>
+<p class="Normal tm37"><strong><span class="tm35">Summary:</span></strong> The potential of omics technologies is hindered by the need to navigate datasets of increasing size, number, and complexity. Interpreting multiple
+lists of genes differentially expressed by the many cell-types identified in single cell RNA-sequencing experiments is one common challenge. We therefore developed the &#8216;<em><span
+ class="tm38">Heatmap for Interactive Viewing of Expression data (HIVE)</span></em>&#8217; browser.  It generates an instant heatmap of expression changes and allows users to submit selected genes to external tools for network
+and gene set enrichment analyses. Any tabular text file containing differential expression data (eg scRNA-Seq, proteomics etc.) can be loaded directly into the browser which operates as a standalone single-page-application
+(SPA) html file, enabling local use with restricted private data and facilitating the sharing of datasets in an accessible format. HIVE provides a user-friendly interactive overview of differential expression data within a
+familiar web-browser environment. The single webpage tabular format is familiar for those accustomed to spreadsheets and enables genes to be selected manually, or by filtering on fold change, probability, and comparison of
+interest. Selected genes can be visualised as a heatmap and analysed interactively with the most relevant interpretative tools. </p>
+<p class="Normal tm37">Keywords: omics technologies, differential gene expression, single-cell RNA-sequencing, interactive visualization, data analysis, interpretative tools, gene set enrichment analysis, network analysis.</p>
+<p class="Normal tm37">&#160;</p>
+<p class="Normal tm37"><strong><span class="tm35">Availability and implementation: </span></strong><em><span class="tm38">HIVE</span></em> is implemented in html/css/javascript as a single page web application, with the String
+DB API javascript file as its only dependency. </p>
+<p class="Normal tm37">HIVE is available free on GitHub-Pages: <u><a href="https://qub-simpson-lab.github.io/HIVE_browser/">https://qub-simpson-lab.github.io/HIVE_browser/</a></u> or can be downloaded from Github respository
+at: <u><a href="https://github.com/QUB-Simpson-lab/HIVE_browser">https://github.com/QUB-Simpson-lab/HIVE_browser</a></u> along with sample expression data in standard csv (comma-separated value) format. <strong><span
+ class="tm35">Contact:</span></strong> David Simpson, <u><a href="mailto:David.Simpson@qub.ac.uk">David.Simpson@qub.ac.uk</a></u></p>
+<p class="Normal tm37"><strong><span class="tm35">Supplementary information</span></strong>: A vignette is available at Bioinformatics online.</p>
+<p class="Normal tm37">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal PageBreak">&#160;</p>
+<p class="Bio_Head1"><strong>1 Introduction</strong></p>
+<p class="Normal tm37">Improved technology and reduced costs have made high throughput genome-wide expression analysis accessible for most life scientists, in addition: many existing datasets are also available online. A common
+output from these Such experiments result inare lists of expression values for each analysed sample. A single-cell RNA-sequencing experiment, for example, can reveal expression data for thousands of individual cells and even
+when aggregated by cell type, comparison of several conditions generates multiple differential expression files. While many tools have been developed for visualization of genomic data (Rue-Albrecht, et al., 2018; Tintori,
+et al., 2020) other refs?, they generally employ scripts which require installation and execution. For a majority of wet-lab users the use of these tools can be a barrier and therefore there is still an unmet need of tools
+that can make the exploration of such complex datasets easy in a an The abilityAn easily accessible way to explore such data interactively is crucial to uncover potential functional effects of treatments and relationships
+between altered genes. To facilitate this process, we have developed the Heatmap for Interactive Viewing of Expression data (HIVE) web-browser. Although driven by needs of scRNA-Seq, HIVE can also be used to analyze bulk RNA-Seq
+or other differential expression datasets.</p>
+<p class="Normal tm37">&#160;</p>
+<p class="Normal tm37">While many tools have been developed for visualization of genomic data (Rue-Albrecht, et al., 2018; Tintori, et al., 2020) other refs?, they generally employ scripts which require installation and execution.
+In contrast, HIVE is encoded within a single html file and therefore, although useful for those with computational experience, presents no barrier to new users who may be deterred by the need to install and run an R or python
+scripts, which often have dependencies on other scripts or C libraries. This also has the significant advantage that it runs locally within the user&#8217;s web-browser and does not transfer data to a remote third-party server,
+retaining the security of sensitive data. While primarily designed with multi-condition gene expression datasets in mind, HIVE is broadly applicable to comparisons of any quantitative data from, for example, proteomic or epigenetic
+studies.</p>
+<p class="Normal tm37">&#160;</p>
+<p class="Bio_Head1 tm37"><strong>2 Results</strong></p>
+<p class="Bio_Head2 tm37"><strong>2.1 Implementation</strong></p>
+<p class="Normal tm37">The HIVE webpage is written in HTML5, CSS 2, and Javascript ES5, which are widely supported across web-browsers. The only external file used is the &#8220;combined_embedded_network_v2.0.4.js&#8221; javascript
+file that is hosted on the string-db.org website and is used to send selected gene-ids to the string API and retrieve the network image or redirect to the network on the STRINGstring website. Internally  the web-page uses
+the &#8220;<em><span class="tm38">FileReader.readAsText()</span></em>&#8221; API to read the input data files directly into the web-browser memory so does not need script on a webserver; and it also downloads the single file
+format file without needing a server script.</p>
+<p class="Bio_Head2 tm37"><strong>2.2 Requirements</strong></p>
+<p class="Normal tm37">The HIVE browser has been tested in the Chrome, Edge, Firefox and Safari web-browsers, on Windows, MacOS, Linux and Android. From the Chrome Task-Manager, running on MacOS, our internal dataset of 2,878
+genes and 34 fold-change columns used 625 MBytes of memory. No server infrastructure is needed because the full webpage and sample test data will be available long-term on Github and on Zenodo (Links above in: &#8216;<strong><span
+ class="tm35">Availability and implementation&#8217;</span></strong>). </p>
+<p class="Bio_Head2 tm37"><strong>2.3 Usage Use case?</strong></p>
+<p class="Normal tm37">The HIVE webpage includes expandable &#8216;Help/Info&#8217; links; and dDetailed step-by-step instructions illustrated with test datasets are provided in the vignette available as Supplementary material.
+Here we outline the process of using the HIVE browser to investigate an exemplar single cell RNA-Seq dataset (Fig. 1) which is&#8230; </p>
+<p class="Normal"><span class="tm39">Possible datasets from GEO:  GSE203499, </span><u><a href="https://www.ncbi.nlm.nih.gov/gds/?term=GSE205123[Accession]">GSE205123</a></u><span
+ class="tm39">, </span><span class="tm39">GSE183206 Retinal degeneration, Our retina first dataset?? </span></p>
+<p class="Normal tm37">The first step is simply to enter the URL for the online version at github pages <u><a href="https://qub-simpson-lab.github.io/HIVE_browser/">https://qub-simpson-lab.github.io/HIVE_browser/</a></u> ,
+or download and open the html file (from: <u><a href="https://github.com/QUB-Simpson-lab/HIVE_browser">https://github.com/QUB-Simpson-lab/HIVE_browser</a>). </u> The HIVE browser webpage takes the user through the following
+steps and offers optional additional information boxes. </p>
+<p class="Bio_Head3 tm37"><strong><span class="tm40">2.3.1 Data input </span></strong></p>
+<p class="Normal tm37">The ability to load data smoothly into the browser is critical to empower our wide target user base and we have therefore focused on simplifying this step. The default input data is are differential
+gene (or protein) expression text files such as those from popular analytical packages such as generated directly from Seurat, DeSeq2 or EdgeR. An example of the steps required to generate input files is provided by the Seurat
+vignette ( <u><a href="https://satijalab.org/seurat/articles/de_vignette.html">https://satijalab.org/seurat/articles/de_vignette.html</a> )</u>. Double quotes around values are optional, only being needed if the value contains
+the column separator (eg. a comma).  For example:</p>
+<p class="Normal tm41"><span class="tm42">&quot;&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+ class="tm42">      &quot;p_val&quot;        &quot;avg_log2FC&quot; </span><span class="tm42">  </span><span class="tm42">&quot;pct.1&quot; </span><span
+ class="tm42"> </span><span class="tm42">&quot;pct.2&quot; </span><span class="tm42"> </span><span class="tm42">&quot;p_val_adj&quot;</span></p>
+<p class="Normal tm41"><span class="tm42">&quot;Rpgrip1&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+ class="tm42">2.4930235e-06  -0.70848114  </span><span class="tm42"> </span><span class="tm42"> 0.025 </span><span class="tm42">  </span><span
+ class="tm42"> 0.186   </span><span class="tm42"> </span><span class="tm42">0.04304205</span></p>
+<p class="Normal tm41"><span class="tm42">&quot;Ccdc126&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+ class="tm42">4.7435722e-06  -0.33199724  </span><span class="tm42"> </span><span class="tm42"> 0.006 </span><span class="tm42"> </span><span
+ class="tm42"> </span><span class="tm42"> </span><span class="tm42">0.137   </span><span class="tm42"> </span><span class="tm42">0.0818977</span></p>
+<p class="Normal tm41"><span class="tm42">&quot;Epha6&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+ class="tm42">3.565314</span><span class="tm42">4</span><span class="tm42">5e-05  </span><span class="tm42"> </span><span
+ class="tm42">0.77590795  </span><span class="tm42"> </span><span class="tm42"> 0.46   </span><span class="tm42"> </span><span
+ class="tm42">0.288   </span><span class="tm42"> </span><span class="tm42">0.61555154</span></p>
+<p class="Normal tm41"><em><span class="tm43">...etc...</span></em></p>
+<p class="Normal tm37">&#160;</p>
+<p class="Normal tm37">The &#8220;avg_log2FC&#8221; column can also be named &#8220;avg_logFC&#8221;. If the &#8220;p_val_adj&#8221; is missing, then the unadjusted &#8220;p_val&#8221; will be used instead. The &quot;pct.1&quot;
+&quot;pct.2&quot; are optional, being optionally displayed if available. More details are provided in the HIVE webpage and vignette.</p>
+<p class="Normal tm37">After clicking the &#8220;<em><span class="tm38">Choose files</span></em>&#8221; button, the user can select their input data files from the standard open files dialog (using Ctrl/cmd or Shift key to
+select multiple files). The browser will try to automatically identify the gene/protein identifier type (eg. Ensembl or Gene-symbol etc) or it can be set manually, followed by selection of the species. </p>
+<p class="Normal tm37">Any data in appropriate tab or comma delimited file formats can be analysed and the browser will try to determine from the titles which columns to use for fold-change, p-value, etc. If necessary, the
+user can select the columns containing fold-change and p-values/FDDR/q-values, and edit the headings as appropriate. </p>
+<p class="Normal tm37">When the data has been loaded you can download it as a single file in a custom HIVE csv format which can be loaded more quickly in future or shared with collaborators. The HIVE browser can also read
+that HIVE single-file directly from a Dropbox.com link, or other webserver, by entering the link in the URL input box in the HIVE webpage, or specifying it as a &#8220;?url=&#8230;.&#8221; (url-encoded) after the link the
+HIVE-browser, for example: <a href="https://github.pages.com/HIVE_browser1.html?url=www.dropbox.com/link&quot;">https://github.pages.com/HIVE_browser1.html?url=www.dropbox.com%2Flink</a>........ (finish this link).  We envisage
+core genomics/bioinformatics facilities producing and supplying these files to the end-user, perhaps using a semi-automated pipeline. The end-user could then use the HIVE browser to investigate their data, without needing
+computational expertise, (and the link with &#8220;?url=...&#8221; could even be shared in a journal article so the reader could simply click on that link to explore the data).</p>
+<p class="Normal tm37">.</p>
+<p class="Bio_Head3 tm37"><strong>2.3.2 Displaying the data</strong></p>
+<p class="Normal tm37">Gene expression is displayed as an interactive HTML table with the names of genes/proteins in the left and right-most columns and the different cell-types/cluster and timepoint/condition along the top,
+and fold-change plus p-values in each corresponding table cell with appropriate heatmap background colour (ranging from dark blue, through green to dark red). Display of p-values for the fold-changes and percentage of cells
+where the feature is detected in the first &amp; second groups can be toggled on or off. At any time an image of the heatmap can be downloaded in png, jpeg, gif or webp format, for use in publications or presentations. Fig
+1x</p>
+<p class="Bio_Head3 tm37"><strong>2.3.3 Selection of genes of interest</strong></p>
+<p class="Normal tm37">The genes can be filtered by various criteria, including the minimum number of columns that have known fold-changes, the minimum required fold-change value (eg. &gt;0.5 or: &gt;0.5 &amp; &lt;-0.5) and
+the minimum P-value for the required fold-change. Criteria can be applied to specific conditions or cell-types. Alternatively, specific genes can be selected using checkboxes in the left column of the heatmap, or the &#8216;All&#8217;,
+&#8216;None&#8217; buttons. </p>
+<p class="Bio_Head3 tm37"><strong>2.3.4 Functional analyses</strong></p>
+<p class="Normal tm37">Selected genes (and species) can be submitted directly for third party analysis. The <em><span class="tm38">STRING </span></em>gene Network(Szklarczyk, et al., 2021) for the selected genes can be displayed
+within the browser or opened in a separate STRING tab to facilitate more in-depth interrogation. Functional enrichment within the selected gene list can be displayed by submitting it to <em><span
+ class="tm38">g:Profiler</span></em> (Raudvere, et al., 2019) with a single click. Further functional annotation can be achieved by submitting the selected genes to the <em><span
+ class="tm38">Database for Annotation, Visualization and Integrated Discovery (DAVID)</span></em> (Sherman, et al., 2022).</p>
+<p class="Bio_Head1 tm37"><strong>3. Conclusion </strong></p>
+<p class="Normal tm37">The HIVE browser provides an accessible way of exploring gene expression data. It is particularly useful for managing the multiple differential expression comparisons generated by single-cell RNA-Seq
+analyses. Our aim is to support a wide range of researchers and additional analytical features and direct import of more input data types will be added in response to feedback. </p>
+<p class="Normal tm37"><strong><span class="tm35">&#160;</span></strong></p>
+<p class="Bio_Head1 tm37"><strong>Acknowledgements</strong></p>
+<p class="Normal tm37"><strong><span class="tm35">&#160;</span></strong></p>
+<p class="Bio_Head1 tm37"><strong>Funding information</strong></p>
+<p class="Normal tm37">This work was supported by a grant to DS from Fight for Sight [grant ref: 5091/5092].</p>
+<p class="Bio_Head1 tm37"><strong><a id="aHlk140831319"></a>References</strong></p>
+<p class="Normal">&#160;</p>
+<p class="EndNoteBibliography tm44">Raudvere, U.<em><span class="tm38">, et al.</span></em> g:Profiler: a web server for functional enrichment analysis and conversions of gene lists (2019 update). <em><span
+ class="tm38">Nucleic Acids Res</span></em> 2019;47(W1):W191-W198.</p>
+<p class="EndNoteBibliography tm44">Rue-Albrecht, K.<em><span class="tm38">, et al.</span></em> iSEE: Interactive SummarizedExperiment Explorer. <em><span
+ class="tm38">F1000Res</span></em> 2018;7:741.</p>
+<p class="EndNoteBibliography tm44">Sherman, B.T.<em><span class="tm38">, et al.</span></em> DAVID: a web server for functional enrichment analysis and functional annotation of gene lists (2021 update). <em><span
+ class="tm38">Nucleic Acids Res</span></em> 2022;50(W1):W216-W221.</p>
+<p class="EndNoteBibliography tm44">Szklarczyk, D.<em><span class="tm38">, et al.</span></em> The STRING database in 2021: customizable protein-protein networks, and functional characterization of user-uploaded gene/measurement
+sets. <em><span class="tm38">Nucleic Acids Res</span></em> 2021;49(D1):D605-D612.</p>
+<p class="EndNoteBibliography tm45">Tintori, S.C., Golden, P. and Goldstein, B. Differential Expression Gene Explorer (DrEdGE): a tool for generating interactive online visualizations of gene expression datasets. <em><span
+ class="tm38">Bioinformatics</span></em> 2020;36(8):2581-2583.</p>
+<p class="Normal"><span class="tm46">&#160;</span></p>
+<p class="Normal"><strong><span class="tm35"></span></strong>
+<img src="21_07Interactive_heatmap_manuscript_files/img00001.PNG" width="612" height="565" alt="" /></p>
+<p class="Normal PageBreak"><strong><span class="tm35">Figure 1. Features of the HIVE browser. </span></strong>Users navigate across a numbered series of interfaces within the browser window. First data input is by selecting
+text files in simple format&#8230;  (A). Once loaded, data is displayed in a heatmap format and can be filtered to select genes of interest (B). The selected genes can be submitted directly to external tools for secondary
+analysis (C). </p>
+<p class="Normal"><strong><span class="tm35">Graphical abstract?</span></strong></p>
+<p class="Normal">&#160;
+<img src="21_07Interactive_heatmap_manuscript_files/img00002.PNG" width="602" height="343" alt="" /></p>
+<p class="Normal"><span class="tm46"></span><span class="tm46">Check this applies to Applications Notes:</span><span class="tm46"> Authors are encouraged to submit a graphical abstract as part of the article, in addition to
+the text abstract. The graphical abstract should clearly summarize the focus and findings of the article, and will be published as part of the article online and in PDF. The graphical abstract should be submitted for peer
+review as a separate file, selecting the appropriate file-type designation in the journal&#8217;s online submission system. The file should be clearly named, e.g. graphical_abstract.tiff. See Preparing and submitting your
+manuscript page for guidance on appropriate file format and resolution for graphics. Please ensure graphical abstracts are in landscape format.</span></p>
+<p class="Normal PageBreak">&#160;</p>
+<p class="Normal"><span class="tm47">Additional notes etc&#8230;.</span></p>
+<p class="Normal"><span class="tm46">&#160;</span></p>
+<p class="Normal"><span class="tm46">These should be included at the end of the text and not in footnotes. Please ensure you</span><strong><span
+ class="tm48"> </span></strong><span class="tm46">acknowledge all sources of funding, see funding section below.</span></p>
+<p class="Normal"><span class="tm46">&#160;</span></p>
+<p class="Normal"><span class="tm46">Details of all funding sources for the work in question should be given in a separate section entitled &#39;Funding&#39;. This should appear first in the &#39;Acknowledgements&#39; section.</span></p>
+<p class="Normal"><span class="tm46">&#160;</span></p>
+<p class="Normal"><span class="tm46">Funding information</span></p>
+<p class="Normal"><span class="tm46">This work was supported by:</span></p>
+<p class="Normal"><span class="tm46">The following rules should be followed:</span></p>
+<p class="Normal"><span class="tm46">The sentence should begin: &#8216;This work was supported by &#8230;&#8217;</span></p>
+<p class="Normal"><span class="tm46">The full official funding agency name should be given, </span><span class="tm46">i.e.,</span><span
+ class="tm46"> &#8216;National Institutes of Health&#8217;, not &#8216;NIH&#8217; (full RIN-approved list of UK funding agencies)</span></p>
+<p class="Normal"><span class="tm46">Grant numbers should be given in brackets as follows: &#8216;[grant number xxxx]&#8217;</span></p>
+<p class="Normal"><span class="tm46">Multiple grant numbers should be separated by a comma as follows: &#8216;[grant numbers xxxx, yyyy]&#8217;</span></p>
+<p class="Normal"><span class="tm46">Agencies should be separated by a semi-colon (plus &#8216;and&#8217; before the last funding agency)</span></p>
+<p class="Normal"><span class="tm46">Where individuals need to be specified for certain sources of funding the following text should be added after the relevant agency or grant number &#39;to [author initials]&#39;.</span></p>
+<p class="Normal"><span class="tm46">An example is given here: &#8216;This work was supported by the National Institutes of Health [AA123456 to C.S., BB765432 to M.H.]; and the Alcohol &amp; Education Research Council [hfygr667789].&#8217;</span></p>
+<p class="Normal"><span class="tm46">&#160;</span></p>
+<p class="Normal"><span class="tm46">&#160;</span></p>
+<p class="Normal PageBreak"><span class="tm46">&#160;</span></p>
+<p class="Normal"><em><span class="tm38">&#160;</span></em></p>
+<p class="Normal">Table of existing tools (from Dredge supplementary data)</p>
+<p class="Normal"></p>
+<p class="Normal PageBreak"><span class="tm46">&#160;</span></p>
+<p class="Normal"><strong><span class="tm49">Bioinformatics instructions</span></strong></p>
+<p class="Normal"><span class="tm46">The title should be short, specific and informative, avoiding if possible version number and the words: tool, package, application, software (and similar). If novel software is being described,
+the name of the software should be included in the title. The surname and initials of each author should be followed by his/her department, Institution, city with postal code and country. Any changes of address may be added
+to the footnotes</span></p>
+<p class="Normal"><span class="tm46">Abstracts for Applications Notes are much shorter than those for an Original Paper. They are structured with four headings: Summary, Availability and Implementation, Contact and Supplementary
+Information.</span></p>
+<p class="Normal tm50"><span class="tm46"></span><span class="tm51">&#183; </span><span class="tm46"></span><em><span class="tm52">Summary</span></em><span
+ class="tm46">:&nbsp;This section should summarize the purpose/novel features of the program in one or two sentences.</span></p>
+<p class="Normal tm50"><span class="tm46"></span><span class="tm51">&#183; </span><span class="tm46"></span><em><span class="tm52">Availability and Implementation</span></em><span
+ class="tm46">:&nbsp;See above for advice and examples for this section.</span></p>
+<p class="Normal tm50"><span class="tm46"></span><span class="tm51">&#183; </span><span class="tm46"></span><em><span class="tm52">Contact</span></em><span
+ class="tm46">:&nbsp;Full email address to be supplied, preferably an institutional address.</span></p>
+<p class="Normal tm50"><span class="tm46"></span><span class="tm51">&#183; </span><span class="tm46"></span><em><span class="tm52">Supplementary information</span></em><span
+ class="tm46">:&nbsp;Links to additional figures/data available on a web site, or reference to online-only Supplementary data available at the journal&#39;s web site.</span></p>
+<p class="Normal"><strong><span class="tm53">&#160;</span></strong></p>
+<p class="Normal"><span class="tm39"></span><strong><span class="tm53">Application Notes</span></strong><span class="tm39">&nbsp;(up to 2 pages; this is approx. 1,300 words or 1,000 words plus one figure): Applications Notes
+are short descriptions of novel software or new algorithm implementations, databases and network services (web servers, and interfaces). Software or data must be freely available to non-commercial users. Availability and Implementation
+must be clearly stated in the article. Authors must also ensure that the software is available for a full two years following publication. Web services must not require mandatory registration by the user. Additional supplementary
+data can be published online-only by the journal. This supplementary material should be referred to in the abstract of the Application Note. If describing software, the software should run under nearly all conditions on a
+wide range of machines. Web servers should not be browser specific. Application Notes must not describe trivial utilities, nor involve significant investment of time for the user to install. The name of the application should
+be included in the title.</span></p>
+<p class="Normal"><span class="tm39">Application notes: up to 2 pages; this is approx. 1300 words or 1000 words plus one figure.</span></p>
+<p class="Normal"><span class="tm39">&#160;</span></p>
+<p class="Normal"><strong><span class="tm53">Data Availability Statements</span></strong></p>
+<p class="Normal"><span class="tm39">Data Availability Statements provide a standardised format to describe&nbsp;the availability of data underlying the research results of&nbsp;the article. The statement may refer to original
+data generated in the course of the study or to third-party data analysed in the article. The statement should describe and provide means of access, where applicable, by linking to the data or providing the required unique
+identifier.</span></p>
+<p class="Normal"><span class="tm39">&#160;</span></p>
+<p class="Normal"><span class="tm39">The data underlying this article are available in [repository name, e.g. Zenodo], at https://dx.doi.org/[doi]. The datasets were derived from sources in the public domain: [list sources,
+including URLs].</span></p>
+<p class="Normal"><span class="tm39">&#160;</span></p>
+<p class="Normal"><span class="tm39"><a id="aHlk106814019"></a>ORCID</span></p>
+<p class="Normal"><span class="tm39">Bioinformatics requires submitting authors to provide an ORCID iD at submission to the journal.</span></p>
+<p class="Normal"><span class="tm39">&#160;</span></p>
+<p class="Normal"><span class="tm39">Software</span></p>
+<p class="Normal"><span class="tm39">&#160;</span></p>
+<p class="Normal"><span class="tm39">If the manuscript describes new software tools or the implementation of novel algorithms, the authors must:</span></p>
+<p class="Normal"><span class="tm39">&#8226;    provide a self-contained and easy-to-use implementation of the software together with appropriate test data and detailed documentation on how to acquire, install, and run the
+software. This includes information on the purpose and values of all optional parameters.</span></p>
+<p class="Normal"><span class="tm39">&#8226;    make the software and the source code freely available at stable URLs (e.g. github, bitbucket) without request to non-commercial users at the time of submission (availability
+must be clearly stated in the manuscript)</span></p>
+<p class="Normal"><span class="tm39">&#8226;    ensure that the submitted software version and test data are archived at dedicated repositories such as Zenodo, Figshare, Software Heritage, CRAN, and Bioconductor and provide
+the corresponding URL in the availability section of the abstract.</span></p>
+<p class="Normal"><span class="tm39">&#160;</span></p>
+<p class="Normal"><span class="tm39">We encourage authors to provide access through an open source license (see Open Source Initiative page for examples) and to implement the software using a non-proprietary programming language.
+ We encourage authors to provide information on how to reproduce results/figures described in the manuscript. The name of the software should be included in the title of the manuscript wherever possible.</span></p>
+<p class="Normal"><span class="tm39">At least </span><span class="tm39">four suggested reviewers</span><span class="tm39"> must be provided by the author at the submission stage</span></p>
+<p class="Normal"><strong><span class="tm53"></span><em><span class="tm54">Cover letter</span></em><span class="tm53"><br />&nbsp;</span></strong></p>
+<p class="Normal"><span class="tm46"></span><span class="tm39">All submissions must be accompanied by a cover letter explaining the suitability of the paper for Bioinformatics. Submissions omitting a cover letter may be editorially
+rejected. If the submitted manuscript deviates from the requirements listed in the Instructions to Authors, the reasons for this must be clearly explained. For example, machine learning papers deviating from the listed requirements
+must explain why this is necessary and specifically suited to the problem addressed.</span></p>
+</body>
+</html>
