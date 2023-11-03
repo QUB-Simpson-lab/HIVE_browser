@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8" />
+<title></title>
+
+<meta name="author" content="David Simpson" />
+<style type="text/css">
+.Normal {
+line-height:115%;
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:10.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+h1 {
+line-height:115%;
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:11.0pt;
+color:White;
+font-weight:normal;
+border:solid #4472C4 3.0pt;padding:1.0pt 1.0pt 1.0pt 1.0pt;background:#4472C4;
+}
+h2 {
+line-height:115%;
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:solid #D9E2F3 3.0pt;padding:1.0pt 1.0pt 1.0pt 1.0pt;background:#D9E2F3;
+}
+h3 {
+line-height:115%;
+margin:1.0pt;
+margin-top:15.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:#1F3763;
+font-weight:normal;
+border:solid #4472C4 1.0pt;border-left:none;border-right:none;border-bottom:none;padding-top:2.0pt;
+}
+h4 {
+line-height:115%;
+margin:1.0pt;
+margin-top:10.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:#2F5496;
+font-weight:normal;
+border:dotted #4472C4 1.0pt;border-left:none;border-right:none;border-bottom:none;padding-top:2.0pt;
+}
+h5 {
+line-height:115%;
+margin:1.0pt;
+margin-top:10.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:#2F5496;
+font-weight:normal;
+border:none;border-bottom:solid #4472C4 1.0pt;padding-bottom:1.0pt;
+}
+h6 {
+line-height:115%;
+margin:1.0pt;
+margin-top:10.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:#2F5496;
+font-weight:normal;
+border:none;border-bottom:dotted #4472C4 1.0pt;padding-bottom:1.0pt;
+}
+.Heading7 {
+mso-style-name:"Heading 7";
+line-height:115%;
+margin:1.0pt;
+margin-top:10.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:#2F5496;
+font-weight:normal;
+border:none;
+}
+.Heading8 {
+mso-style-name:"Heading 8";
+line-height:115%;
+margin:1.0pt;
+margin-top:10.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:9.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.Heading9 {
+mso-style-name:"Heading 9";
+line-height:115%;
+margin:1.0pt;
+margin-top:10.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:9.0pt;
+color:Black;
+font-style:italic;
+font-weight:normal;
+border:none;
+}
+.Caption {
+line-height:115%;
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:10.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:8.0pt;
+color:#2F5496;
+font-weight:bold;
+border:none;
+}
+.Title {
+line-height:115%;
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri Light";
+font-size:26.0pt;
+color:#4472C4;
+font-weight:normal;
+border:none;
+}
+.Subtitle {
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:25.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.5pt;
+color:#595959;
+font-weight:normal;
+border:none;
+}
+.NoSpacing {
+mso-style-name:"No Spacing";
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.Quote {
+line-height:115%;
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:10.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:12.0pt;
+color:Black;
+font-style:italic;
+font-weight:normal;
+border:none;
+}
+.IntenseQuote {
+mso-style-name:"Intense Quote";
+margin:1.0pt;
+margin-top:12.0pt;
+margin-bottom:12.0pt;
+margin-left:54.0pt;
+margin-right:54.0pt;
+text-indent:0.0pt;
+text-align:center;
+font-family:"Calibri";
+font-size:12.0pt;
+color:#4472C4;
+font-weight:normal;
+border:none;
+}
+.TOCHeading {
+mso-style-name:"TOC Heading";
+line-height:115%;
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:11.0pt;
+color:White;
+font-weight:normal;
+border:solid #4472C4 3.0pt;padding:1.0pt 1.0pt 1.0pt 1.0pt;background:#4472C4;
+}
+.Header {
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.Footer {
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.Normal_Web_ {
+mso-style-name:"Normal (Web)";
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:5.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Times New Roman";
+font-size:12.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.ListParagraph {
+mso-style-name:"List Paragraph";
+line-height:115%;
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.EndnoteText {
+mso-style-name:"Endnote Text";
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.EndNoteBibliographyTitle {
+mso-style-name:"EndNote Bibliography Title";
+line-height:115%;
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+text-align:center;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.EndNoteBibliography {
+mso-style-name:"EndNote Bibliography";
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:10.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.TOC1 {
+mso-style-name:"TOC 1";
+line-height:115%;
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:5.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:16.0pt;
+color:#4472C4;
+font-weight:bold;
+border:none;
+}
+.TOC2 {
+mso-style-name:"TOC 2";
+line-height:115%;
+margin:1.0pt;
+margin-top:5.0pt;
+margin-bottom:5.0pt;
+margin-left:10.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.CommentText {
+mso-style-name:"Comment Text";
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:normal;
+border:none;
+}
+.CommentSubject {
+mso-style-name:"Comment Subject";
+margin:1.0pt;
+margin-top:1.0pt;
+margin-bottom:1.0pt;
+margin-left:0.0pt;
+margin-right:0.0pt;
+text-indent:0.0pt;
+font-family:"Calibri";
+font-size:10.0pt;
+color:Black;
+font-weight:bold;
+border:none;
+}
+.Heading_1_Char {
+text-transform:uppercase;background:#4472C4;color:White;font-size:11.0pt;letter-spacing:0.0pt;}
+.Heading_2_Char {
+text-transform:uppercase;background:#D9E2F3;}
+.Heading_3_Char {
+text-transform:uppercase;color:#1F3763;}
+.Heading_4_Char {
+text-transform:uppercase;color:#2F5496;}
+.Heading_5_Char {
+text-transform:uppercase;color:#2F5496;}
+.Heading_6_Char {
+text-transform:uppercase;color:#2F5496;}
+.Heading_7_Char {
+text-transform:uppercase;color:#2F5496;}
+.Heading_8_Char {
+text-transform:uppercase;font-size:9.0pt;letter-spacing:0.0pt;}
+.Heading_9_Char {
+font-style:italic;text-transform:uppercase;font-size:9.0pt;letter-spacing:0.0pt;}
+.Title_Char {
+text-transform:uppercase;color:#4472C4;font-size:26.0pt;font-family:"Calibri Light";letter-spacing:0.0pt;}
+.Subtitle_Char {
+text-transform:uppercase;color:#595959;font-size:10.5pt;letter-spacing:0.0pt;}
+.Strong {
+font-weight:bold;}
+.Emphasis {
+text-transform:uppercase;color:#1F3763;}
+.Quote_Char {
+font-style:italic;font-size:12.0pt;}
+.Intense_Quote_Char {
+color:#4472C4;font-size:12.0pt;}
+.Subtle_Emphasis {
+font-style:italic;color:#1F3763;}
+.Intense_Emphasis {
+text-transform:uppercase;color:#1F3763;font-weight:bold;}
+.Subtle_Reference {
+color:#4472C4;font-weight:bold;}
+.Intense_Reference {
+font-style:italic;text-transform:uppercase;color:#4472C4;font-weight:bold;}
+.Book_Title {
+font-style:italic;font-weight:bold;}
+.Header_Char {
+}
+.Footer_Char {
+}
+.Hyperlink {
+color:blue;}
+.Unresolved_Mention {
+background:#E1DFDD;color:#605E5C;}
+.FollowedHyperlink {
+color:#954F72;}
+.Endnote_Text_Char {
+}
+.Endnote_Reference {
+}
+.EndNote_Bibliography_Title_Char {
+}
+.EndNote_Bibliography_Char {
+}
+.PageBreak {
+page-break-after:always;
+}
+.tm58 {
+text-transform:uppercase;
+font-weight:bold;
+}
+.tm59 {
+font-size:12.0pt;
+}
+.tm60 {
+text-align:center;
+}
+.tm61 {
+text-transform:uppercase;
+font-size:22.0pt;
+font-weight:bold;
+}
+.tm62 {
+color:Black;
+font-size:11.0pt;
+font-weight:normal;
+}
+.tm63 {
+font-size:11.0pt;
+}
+.tm64 {
+text-align:justify;
+}
+.tm65 {
+margin-top:12.0pt;
+margin-bottom:6.0pt;
+}
+.tm66 {
+text-transform:uppercase;
+}
+.tm67 {
+font-size:12.0pt;
+font-weight:bold;
+}
+.tm68 {
+text-transform:uppercase;
+font-size:12.0pt;
+}
+.tm69 {
+margin-top:12.0pt;
+line-height:100%;
+text-align:justify;
+}
+.tm70 {
+background:White;
+font-size:12.0pt;
+}
+.tm71 {
+font-size:14.0pt;
+font-weight:bold;
+}
+.tm72 {
+margin-top:18.0pt;
+line-height:100%;
+text-align:justify;
+}
+.tm73 {
+line-height:100%;
+text-align:justify;
+}
+.tm74 {
+line-height:100%;
+}
+.tm75 {
+font-family:"Courier New";
+}
+.tm76 {
+background:#EEEEEE;
+font-size:12.0pt;
+}
+.tm77 {
+font-size:12.0pt;
+font-family:"Courier New";
+}
+.tm78 {
+margin-bottom:5.0pt;
+line-height:100%;
+}
+.tm79 {
+margin-bottom:6.0pt;
+margin-left:36.0pt;
+text-indent:-18.0pt;
+line-height:100%;
+}
+.tm80 {
+font-family:"Symbol";
+}
+.tm81 {
+margin-top:1.0pt;
+margin-bottom:1.0pt;
+line-height:100%;
+}
+.tm82 {
+font-family:"Arial";
+font-weight:bold;
+}
+.tm83 {
+font-family:"Arial";
+}
+.tm84 {
+font-size:12.0pt;
+font-family:"Times New Roman";
+}
+.tm85 {
+background:#EEEEEE;
+font-family:"Arial";
+}
+.tm86 {
+text-decoration:line-through;
+}
+.tm87 {
+margin-left:36.0pt;
+text-indent:-36.0pt;
+}
+
+</style>
+</head>
+<body>
+<p class="Title"><strong><span class="tm58">Heatmap for Interactive Viewing of gene Expression: HIVE browse<a id="aHlk130918790"></a>r </span></strong></p>
+<p class="Normal"><span class="tm59"><a id="atop"></a>&#160;</span></p>
+<p class="Normal"><span class="tm59"></span><span class="tm59">A USER GUIDE </span></p>
+<p class="Normal"><em><span class="Quote_Char">July, 2023</span></em></p>
+<p class="Title tm60"><strong><span class="tm61">&#160;</span></strong></p>
+<p class="Title"><strong><span class="tm61"><a id="Contents"></a>CONTENTS</span></strong></p>
+<p class="Normal">&#160;</p>
+<p class="TOC1"><span class="tm62"></span><strong><a href="#aToc140839005">Introduction&#32;1</a><br /></strong></p>
+<p class="TOC1"><span class="tm62"></span><strong><a href="#aToc140839006">Accessing the HIVE browser&#32;2</a><br /></strong></p>
+<p class="TOC1"><span class="tm62"></span><strong><a href="#aToc140839007">Loading gene expression data&#32;2</a><br /></strong></p>
+<p class="TOC1"><span class="tm62"></span><strong><a href="#aToc140839008">Display options &amp; Filtering by fold change, p value, cell type/condition&#32;5</a><br /></strong></p>
+<p class="TOC1"><span class="tm62"></span><strong><a href="#aToc140839009">Selection of genes of interest&#32;7</a><br /></strong></p>
+<p class="TOC1"><span class="tm62"></span><strong><a href="#aToc140839010">Submitting gene lists for secondary analysis&#32;7</a><br /></strong></p>
+<p class="TOC2"><span class="tm63"></span><a href="#aToc140839011">g:Profiler: a web server for functional enrichment analysis&#32;8</a><br /></p>
+<p class="TOC2"><span class="tm63"></span><a href="#aToc140839012">STRING: functional protein association networks&#32;8</a><br /></p>
+<p class="TOC2"><span class="tm63"></span><a href="#aToc140839013">DAVID Bioinformatics Resources&#32;8</a><br /></p>
+<p class="TOC1"><span class="tm62"></span><strong><a href="#aToc140839014">Creating a heatmap image for download&#32;9</a><br /></strong></p>
+<p class="TOC1"><span class="tm62"></span><strong><a href="#aToc140839015">Data formats&#32;9</a><br /></strong></p>
+<p class="TOC1"><span class="tm62"></span><strong><a href="#aToc140839016">Example datasets&#32;12</a><br /></strong></p>
+<p class="TOC1"><span class="tm62"></span><strong><a href="#aToc140839017">Bibliography&#32;13</a><br /></strong></p>
+<p class="Normal tm64"><span class="tm59">&#160;</span></p>
+<h1 class="tm65"><span class="tm66"><a id="aIntroduction"></a><a id="aToc140839005"></a>Introduction</span></h1>
+<p class="Normal tm64"><span class="tm59">To demonstrate how to upload expression data to the HIVE browser, explore it to identify genes of interest, and submit gene lists to secondary tools for further analysis, we use two
+exemplar single cell RNA-Seq datasets. The first has changes in expression in the cell types of the mouse retina in the Akita model of diabetes. The second is from single human islet cells from Type 2 diabetics and non-diabetics
+generated by Xin </span><em><span class="Quote_Char">et al</span></em><span class="tm59"> (Xin, Kim et al. 2016), with expression differences in diabetes according to gender.  Further details of the example datasets are available
+in the &#8216;</span><u><a href="#aExample_datasets"><span class="tm59">Example datasets</span></a></u><span class="tm59">&#8217; section.</span></p>
+<p class="Normal"><u><span class="Hyperlink"></span><a href="#Contents_">Back to Contents</a></u></p>
+<p class="Normal tm64"><span class="tm59">&#160;</span></p>
+<h1 class="tm65"><span class="tm66"><a id="aAccess_the_HIVE"></a><a id="aToc140839006"></a>Accessing the HIVE browser<a id="aInput_your_gene"></a></span></h1>
+<p class="Normal"><strong><span class="tm67">Quick start</span></strong></p>
+<p class="Normal"><span class="tm59">Click on this </span><u><a href="https://eur02.safelinks.protection.outlook.com/?url=https://qub-simpson-lab.github.io/HIVE_browser/?url=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Foo7n9a9ccjo99erspfobh%2FHIVE_data_19July2023.tsv%3Frlkey%3Db1zt87"><span
+ class="tm59">link</span></a></u><span class="tm59"> to open the browser tab with preloaded data. You can start to explore the example data and then input your own data.</span></p>
+<p class="Normal"><span class="tm59"></span><strong><span class="tm67">Download HIVE browser </span></strong><span class="tm59">file from GitHub (</span><u><a
+ href="https://qub-simpson-lab.github.io/HIVE_browser/"><span class="tm59">https://qub-simpson-lab.github.io/HIVE_browser/</span></a></u><span
+ class="tm59"> or </span><u><a href="https://github.com/QUB-Simpson-lab/HIVE_browser"><span class="tm59">https://github.com/QUB-Simpson-lab/HIVE_browser</span></a></u><span
+ class="tm59"> ). </span></p>
+<p class="Normal"><span class="tm59"></span><span class="tm59">Click on the file to run locally </span></p>
+<p class="Normal"><u><span class="Hyperlink"></span><a href="#Contents_">Back to Contents</a></u></p>
+<p class="Normal tm64"><span class="tm59">&#160;</span></p>
+<h1 class="tm65"><span class="tm66"><a id="aToc140839007"></a>Loading gene expression data</span></h1>
+<p class="Normal"><strong><span class="tm67">&#160;</span></strong></p>
+<p class="Normal"><strong><span class="tm67">Download example datasets.</span></strong><span class="tm59"> There are 3 formats for you to explore. Example A is the most common starting point and comprises individual files
+for each comparison. It is also possible to import differential gene expression for multiple conditions from a single file (example B). Any gene expression data organized in columns separated by comma, tab or semi-colon can
+be imported into the HIVE browser. Once you have your data loaded you can create a custom HIVE format file (example C) suitable for data sharing by clicking on the &#8216;Download your data as a single data file&#8217; link.
+For more information about file formats and two-level inputs see Combined multi-sample and multi-level input files section </span><u><a
+ href="#multisample_input_files"><span class="tm59">below</span></a></u><span class="tm59">. </span></p>
+<p class="Normal"><strong><span class="tm67"></span></strong><u><span class="tm59">A. Individual differential expression files</span></u><strong><span
+ class="tm67"> </span></strong><span class="tm59">(eg output from Seurat)</span></p>
+<p class="Normal"><span class="tm59">Diabetic retina:  Amacrine.txt, Bipolar.txt, Cone.txt, endothelial.txt, Microglia.txt, Muller.txt, Pericyte.txt, RGC.txt, Rod.txt</span></p>
+<p class="Normal"><span class="tm59"></span><u><span class="tm59">B. Single file</span></u><span class="tm59"> </span></p>
+<p class="Normal"><span class="tm59">Diabetic islet cells: </span><span class="tm59">File_name</span></p>
+<p class="Normal"><u><span class="tm59">C. HIVE custom format</span></u></p>
+<p class="Normal"><span class="tm59">Diabetic islet cells:  </span><span class="tm59">File_name</span></p>
+<p class="Normal"><strong><span class="tm67">Choose files</span></strong></p>
+<p class="Normal"><span class="tm59"><a id="aHlk140747672"></a>Navigate to box (1) in the browser, entitled &#8216;Input your data&#8217;. In this case we are using individual differential expression files (example dataset
+A)</span></p>
+<p class="Normal"><span class="tm59">Click on &#8216;Choose files&#8217; and select the individual files (hold down the &#8216;CTRL&#8217; key (&#8216;cmd&#8217; on Mac) and click on each file with the mouse, or click on first
+file, then hold down &#8216;SHIFT&#8217; key and click on the last file in list).</span></p>
+<p class="Normal tm60">
+<img src="21_07_23_HIVE_vignette_draft_files/img00001.PNG" width="514" height="264" hspace="12" alt="" /></p>
+<p class="Normal"><span class="tm59">Once the files have been selected click on &#8216;OPEN&#8217;. The files may take few seconds to load (depending on size) </span></p>
+<p class="Normal"><span class="tm59">Navigate to box (2) in the browser, entitled &#8216;Select columns&#8217;.</span></p>
+<p class="Normal"><span class="tm59">a. Select the gene or protein identifier used in your data from the drop-down menu (it will normally be correctly pre-populated based on your input data)</span></p>
+<p class="Normal tm60">
+<img src="21_07_23_HIVE_vignette_draft_files/img00002.PNG" width="480" height="87" hspace="12" alt="" /></p>
+<p class="Normal"><span class="tm59">b. Select the organism from the drop-down menu</span></p>
+<p class="Normal tm60">
+<img src="21_07_23_HIVE_vignette_draft_files/img00003.PNG" width="480" height="175" hspace="12" alt="" /></p>
+<p class="Normal"><span class="tm59">c. Set names </span><span class="tm59">for columns in the heatmap</span><span class="tm59">. These will be pre-populated based on your input files, but can be amended if required (eg of
+Main-name: CellType or TissueType; and of sub-name: TimePoint, Condition or Location). In this example we have just the main column for each file.</span></p>
+<p class="Normal tm60">&#160;
+<img src="21_07_23_HIVE_vignette_draft_files/img00004.PNG" width="480" height="217" hspace="12" alt="" /></p>
+<p class="Normal"><span class="tm59"><a id="Select_column_data_types"></a>d. Select the column data type for each column in your input files</span></p>
+<p class="Normal tm60">
+<img src="21_07_23_HIVE_vignette_draft_files/img00005.PNG" width="480" height="201" hspace="12" alt="" /></p>
+<p class="Normal">View the heatmap by clicking on the &#8216;Show/Update heatmap&#8217; button</p>
+<p class="Normal tm60">
+<img src="21_07_23_HIVE_vignette_draft_files/img00006.PNG" width="480" height="257" hspace="12" alt="" /></p>
+<p class="Normal"><u><span class="Hyperlink"></span><a href="#Contents_">Back to Contents</a></u></p>
+<p class="Normal tm64"><span class="tm59">&#160;</span></p>
+<h1 class="tm65"><span class="tm66"><a id="aFilter_by_fold"></a><a id="aToc140839008"></a>Display options &amp; Filtering by fold change, p value, cell type/condition </span></h1>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59"></span><span class="tm59">Navigate to box (3) at the top of the webpage entitled &#8216;Display options&#8217;</span><span
+ class="tm59">. You can toggle display of </span><em><span class="Quote_Char">p</span></em><span class="tm59">-values and pct1 &amp; 2 in the heatmap by selecting the boxes as required.</span></p>
+<p class="Normal tm60">
+<img src="21_07_23_HIVE_vignette_draft_files/img00007.PNG" width="480" height="236" hspace="12" alt="" /></p>
+<p class="Normal"><span class="tm59">Navigate to box (4)</span></p>
+<p class="Normal"><span class="tm59">Default filter options are; one or more columns having fold-change values, p&lt;0.5 in at least one column in the row, and any fold change. The users can change these values as shown below.</span></p>
+<p class="Normal"><span class="tm59">a. Select how many rows must have the chosen fold change </span></p>
+<p class="Normal">
+<img src="21_07_23_HIVE_vignette_draft_files/img00008.PNG" width="480" height="260" hspace="12" alt="" /></p>
+<p class="Normal"><span class="tm59">b. Select the desired fold change range and cell type of interest. </span></p>
+<p class="Normal"><span class="tm59">If your data has two levels, for example several time-points, age groups or sexes at which each of the cell types were assessed, it is possible to select both (more than one group can be
+selected by holding down the CTRL button).</span></p>
+<p class="Normal"><span class="tm59">c. Select the P-value (this refers to the adjusted P-value or raw P-value as selected </span><u><a
+ href="#Select_column_data_types"><span class="tm59">above</span></a></u><span class="tm59">). All rows that contain at least one value below this threshold will be displayed. The fold changes with p-values below this threshold
+can be hidden by checking the box.</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal tm60">
+<img src="21_07_23_HIVE_vignette_draft_files/img00009.PNG" width="480" height="243" hspace="12" alt="" /></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><u><span class="Hyperlink"></span><a href="#Contents_">Back to Contents</a></u></p>
+<p class="Normal tm64"><span class="tm59">&#160;</span></p>
+<h1 class="tm65"><span class="tm66"><a id="aSelection_of_genes"></a><a id="aToc140839009"></a>Selection of genes of interest</span></h1>
+<p class="Normal"><span class="tm59">Navigate to box (6) &#8216;Selected genes&#8217;</span>
+<img src="21_07_23_HIVE_vignette_draft_files/img00010.PNG" width="480" height="110" hspace="12" alt="" /></p>
+<div>
+<span style="float:left">
+<img src="21_07_23_HIVE_vignette_draft_files/img00011.PNG" width="254" height="242" hspace="12" alt="" />
+</span>
+</div>
+<p class="Normal"><span class="tm59">Your genes of interest can be chosen simply by using the filtering criteria above and then clicking on &#8216;All.&#8217; It is also possible to select a subset of genes by manually clicking
+on genes of interest. This is particularly helpful for preliminary investigation of genes of interest identified while browsing the heatmap. </span></p>
+<p class="Normal tm60">
+<img src="21_07_23_HIVE_vignette_draft_files/img00012.PNG" width="505" height="182" hspace="12" alt="" /></p>
+<p class="Normal"><span class="tm59">As you type a gene name into the box at the top of the &#8216;Gene&#8217; column in the heatmap, the genes will be filtered to retain those with a matching name. </span></p>
+<p class="Normal"><span class="tm59">When you have chosen your genes of interest they can be copied to the clipboard with the chosen separator.</span></p>
+<p class="Normal"><u><span class="Hyperlink"><a id="aViewing_data_in"></a></span><a href="#Contents_">Back to Contents</a></u></p>
+<p class="Normal tm64"><span class="tm59">&#160;</span></p>
+<h1 class="tm65"><span class="tm66"><a id="aSubmission_to_secondary"></a><a id="aToc140839010"></a>Submitting gene lists for secondary analysis </span></h1>
+<p class="Normal"><span class="tm59">To submit selected genes directly to an external tool for network analysis and detection of enriched gene categories and pathways navigate to box 6, 7 or 8.</span></p>
+<p class="Normal">
+<img src="21_07_23_HIVE_vignette_draft_files/img00013.PNG" width="297" height="54" hspace="12" alt="" /></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<h2><span class="tm66"><a id="aToc140839011"></a>g:Profiler: a web server for functional enrichment analysis</span></h2>
+<p class="Normal"><span class="tm59">For g:Profiler, simply click on the blue button to open the g:Profiler web server with your list of selected genes </span></p>
+<p class="Normal tm60"><span class="tm59"></span>
+<img src="21_07_23_HIVE_vignette_draft_files/img00014.PNG" width="608" height="100" hspace="12" alt="" /><span class="tm59"> </span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<h2><span class="tm66"><a id="aToc140839012"></a>STRING: functional protein association networks</span></h2>
+<p class="Normal"><span class="tm59">For StringDB you can choose some basic parameters for the network and then view the image within the HIVE bowser by clicking the &#8216;Show StringDB image here&#8217; button. For more
+in depth analyses you can view your selected gene list on the String server by clicking the &#8216;Show StringDB in new tab&#8217; button. </span></p>
+<p class="Normal tm60">
+<img src="21_07_23_HIVE_vignette_draft_files/img00015.PNG" width="609" height="166" hspace="12" alt="" /></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<h2><span class="tm66"><a id="aToc140839013"></a>DAVID Bioinformatics Resources </span></h2>
+<p class="Normal"><span class="tm59">For DAVID Bioinformatics Resources copy the selected genes to the clipboard using the tool provided, follow the DAVID link, and paste in your gene list.</span></p>
+<p class="Normal tm60">
+<img src="21_07_23_HIVE_vignette_draft_files/img00016.PNG" width="589" height="171" hspace="12" alt="" /></p>
+<p class="Normal">&#160;</p>
+<p class="Normal"><u><span class="Hyperlink"></span><a href="#Contents_">Back to Contents</a></u></p>
+<p class="Normal tm64"><span class="tm59">&#160;</span></p>
+<h1 class="tm65"><span class="tm66"><a id="aPlotting_a_heatmap"></a>&#160;<a id="aToc140839014"></a>Creating a heatmap image for download</span></h1>
+<p class="Normal"><span class="tm59">Navigate to box 9</span></p>
+<p class="Normal tm60"><span class="tm59"></span>
+<img src="21_07_23_HIVE_vignette_draft_files/img00017.PNG" width="480" height="162" hspace="12" alt="" /></p>
+<p class="Normal"><span class="tm59">Choose options for customizing the output</span></p>
+<p class="Normal"><span class="tm59">Preview</span></p>
+<p class="Normal"><span class="tm59">Select format</span></p>
+<p class="Normal"><u><span class="Hyperlink"></span><a href="#Contents_">Back to Contents</a></u></p>
+<p class="Normal tm64"><span class="tm59">&#160;</span></p>
+<h1 class="tm65"><span class="tm68"><a id="aToc140839015"></a>Data formats</span></h1>
+<p class="Normal tm69"><span class="tm59">The only requirement of your data is that it contains gene id and differential expression (&quot;avg_log2FC&quot;) columns, which can be selected during the input process. It should
+be in comma, semicolon, or tab, separated format and can include optional p value (&quot;p_val&quot;, &quot;p_val_adj&quot;) and percent of cells (&quot;pct.1&quot; &quot;pct.2&quot;) columns (see example input files). You
+can import the expression data from multiple individual files or from a single file containing multiple measurements. </span></p>
+<p class="Normal tm69"><span class="tm70"></span><strong><u><span class="tm71">Individual input files</span></u></strong></p>
+<p class="Normal tm72"><span class="tm70">The input data must be in tabular format as shown above. This is the typical column order, but specific columns can be selected during import. The first column is expected to contain
+gene/protein identifiers, such as gene symbols. It is possible to use any gene identifier, but for the &#8216;additional gene information&#8217; links in the HIVE browser to be functional, it must be one of those types available
+from the drop-down list. Subsequent columns contain information about the differential expression of each gene. The &#39;avg_log2FC&#39; or &#39;avg_logFC&#39; column is the fold-change value. The &#39;p_val_adj&#39; is the
+P=value (if there is no &#39;p_val_adj&#39; column, then &#39;p_val&#39; [unadjusted p-value] column is used instead). The &#8216;pct&#8217; is the </span><span
+ class="tm59">percentage of cells in which the gene is detected.</span></p>
+<div>
+<span style="position:relative;left:0px;top:0px">
+</span>
+</div>
+<p class="Normal tm73"><span class="tm70">A full dataset follows the format generated by analysis of scRNA-Seq data using the Seurat pipeline and contains the following columns: &quot;&quot; &quot;p_val&quot; &quot;avg_log2FC&quot;
+&quot;pct.1&quot; &quot;pct.2&quot; &quot;p_val_adj&quot;.  Only the &quot;avg_log2FC&quot; is essential, but omission of the other columns will reduce the functionality of the browser. Whatever the source of your data, the
+column headings must have these names enclosed within double quotation marks (fold change can be &quot;avg_log2FC&quot; or &quot;avg_logFC&quot;).  </span></p>
+<p class="Normal tm73"><span class="tm59"></span><span class="tm70">The columns in the input file(s) should be separated by either: comma, semicolon, tab, or space. Typically an </span><span
+ class="tm59">individual fold-change file is provided for each comparison eg differential expression in a specific cell type.</span></p>
+<p class="Normal tm74"><span class="tm70"></span><span class="tm59"><br /></span><span class="tm70">Example of data in the required format:</span></p>
+<p class="Normal tm74"><span class="tm75"></span><span class="tm76">&nbsp;</span><span class="tm59"><br /></span><span class="tm75">&quot;&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;p_val&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;avg_log2FC&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;pct.1&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;pct.2&quot;  &quot;p_val_adj&quot;<br />&quot;Rpgrip1&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.49e-06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.71
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.025 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.186    0.043<br />&quot;Ccdc126&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.74e-06 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.33
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.006 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.137    0.081<br />&quot;Epha6&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.56e-05 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.78
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong><span class="tm67"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></strong><span
+ class="tm75">0.46 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.288    0.615</span><span class="tm77"><br /></span><span
+ class="tm75">...etc...</span></p>
+<p class="Normal tm78"><span class="tm59">These columns typically have the following meaning (from:&nbsp;</span><u><a href="https://satijalab.org/seurat/articles/de_vignette.html#perform_default_differential_expression_tests_1"><span
+ class="tm59">Differential expression testing in Seurat</span></a></u><span class="tm59">):</span></p>
+<p class="Normal tm79"><span class="tm59"></span><span class="tm80">&#183; </span><span class="tm59"></span><em><span class="Quote_Char">p_val</span></em><span
+ class="tm59">: p_val (unadjusted)</span></p>
+<p class="Normal tm79"><span class="tm59"></span><span class="tm80">&#183; </span><span class="tm59"></span><em><span class="Quote_Char">avg_logFC</span></em><span
+ class="tm59">: log fold-change of the average expression between the two groups. Positive values indicate that the feature is more highly expressed in the first group</span></p>
+<p class="Normal tm79"><span class="tm59"></span><span class="tm80">&#183; </span><span class="tm59"></span><em><span class="Quote_Char">pct.1</span></em><span
+ class="tm59">: The <a id="aHlk129621646"></a>percentage of cells in which the feature is detected in the first group</span></p>
+<p class="Normal tm79"><span class="tm59"></span><span class="tm80">&#183; </span><span class="tm59"></span><em><span class="Quote_Char">pct.2</span></em><span
+ class="tm59">: The percentage of cells in which the feature is detected in the second group</span></p>
+<p class="Normal tm79"><span class="tm59"></span><span class="tm80">&#183; </span><span class="tm59"></span><em><span class="Quote_Char">p_val_adj</span></em><span
+ class="tm59">&nbsp;: Adjusted p-value, based on Bonferroni correction using all features in the dataset</span></p>
+<p class="Normal tm78"><span class="tm59">Each filename (without any &#39;.csv&#39; or &quot;.tsv&quot; ending) will be used as the Heatmap column heading.</span></p>
+<p class="Normal tm74"><span class="tm59">&#160;</span></p>
+<p class="Normal tm78"><strong><u><span class="tm71"><a id="multisample_input_files"></a>Combined multi-sample and two-level input files</span></u></strong></p>
+<p class="Normal tm78"><span class="tm59">It is possible to upload a single CSV file containing differential (eg. between test and control samples) fold changes for all the samples. The HIVE browser requires a column with
+an identifier (gene or protein) and a column for log</span><sub><span class="tm59">2</span></sub><span class="tm59">fold change for each condition (additional columns can include p value, adjusted p value and percent of cells
+with expression). If the column headings have the standard format (ie. P_val, avg_log2FC&#8230; ) they will be imported automatically. If your file has different column names you can select manually which contains each value).
+You can also load individual gene expression files by selecting them manually &#8211; once these are loaded you can download the input data as a single multi-sample file using the &#39;Optionally: Download your data as single
+data file&#39; link. This single file makes subsequent loading of data easier.</span></p>
+<p class="Normal tm78"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">Combined file</span></p>
+<p class="Normal tm78"><span class="tm59">If your data has multiple levels, for example differential expression for each cell type was recorded in several conditions, groups or timepoints, it is possible to reflect this in
+either the title of individual file or the column name in a multi-sample file. If a &#39;-&#39; is included in the filename of an individual file, for example between the CellType and Condition this is reflected in the heatmap
+column titles. Alternatively, the same samples within a single file could be specified using a colon in the column names as follows CellType:Condition.</span></p>
+<p class="Normal tm78"><span class="tm59">&#160;</span></p>
+<p class="Normal tm78"><span class="tm59">Add image of file with Celltype:Condition&#8230;</span></p>
+<p class="Normal tm78"><span class="tm59"></span>
+<img src="21_07_23_HIVE_vignette_draft_files/img00018.PNG" width="150" height="192" alt="" /> <span class="tm59">
+<img src="21_07_23_HIVE_vignette_draft_files/img00019.PNG" width="406" height="68" alt="" /></span></p>
+<p class="Normal tm81"><strong><span class="tm82"></span></strong><span class="tm83">
+<img src="21_07_23_HIVE_vignette_draft_files/img00020.PNG" width="602" height="97" alt="" /></span></p>
+<p class="Normal tm81"><strong><span class="tm82">&#160;</span></strong></p>
+<p class="Normal tm81"><strong><span class="tm82">&#160;</span></strong></p>
+<p class="Normal tm81"><span class="tm84"></span><span class="tm83"><br /></span><strong><span class="tm82">OR:</span></strong><span
+ class="tm83"><br /></span><strong><span class="tm82">(2) </span></strong><span class="tm83"><br /></span></p>
+<p class="Normal tm78"><span class="tm77">Gene,Amacrine:EARLY,Amacrine:MID,Amacrine:LATE,Bipolar:EARLY,Bipolar:MID,Bipolar:LATE,Cone:EARLY,Cone:MID,Cone:LATE<br />Aak1,0,0.6,0,0,-2.1,0,0,0,0.4<br />Aamp,0,0.3,0,0,-0.6,0,0,0.3,0<br />Aars,0,0.4,0,0,-0.3,0,1.2,0,0<br />...etc....</span></p>
+<p class="Normal tm81"><span class="tm84"></span><span class="tm85">where:</span></p>
+<p class="Normal tm79"><span class="tm83"></span><span class="tm80">&#183; </span><span class="tm83">first column is &#39;Gene&#39; name</span></p>
+<p class="Normal tm79"><span class="tm83"></span><span class="tm80">&#183; </span><span class="tm83">then several columns with heading format: CellType:TimePoint (or CellType:Condition/Location, etc)</span></p>
+<p class="Normal tm79"><span class="tm83"></span><span class="tm80">&#183; </span><span class="tm83">then gene/protein fold-change rows in format: GeneName, Fold-change:Optional p-value:Optional pct.1: Optional pct2, .....</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><strong><span class="tm67">Multilevel Explain format:&#8217;s names</span></strong></p>
+<p class="Normal"><strong><span class="tm67">Eg Islet</span></strong></p>
+<p class="Normal"><span class="tm59">Can be used for other datatypes </span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal tm78"><span class="tm59">For an explanation of the format required for combined multi-sample and multi-level input files see </span><u><a
+ href="#aAlternative_input_data"><span class="tm59">below</span></a></u><span class="tm59">.</span></p>
+<p class="Normal tm78"><span class="tm59">&#160;</span></p>
+<p class="Normal"><u><span class="Hyperlink"></span><a href="#Contents_">Back to Contents</a></u></p>
+<p class="Normal tm64"><span class="tm59">&#160;</span></p>
+<h1 class="tm65"><span class="tm66"><a id="aDetails_of_example"></a><a id="aExample_datasets"></a><a id="aToc140839016"></a>Example datasets</span></h1>
+<p class="Normal"><s><span class="tm86"></span></s><strong><span class="tm67">Dataset 1:</span></strong><span class="tm59"> Mouse retina. This was generated by our group from the Akita mouse model of diabetes and has been
+deposited in GEO, accession number </span><span class="tm59">xxxx</span><span class="tm59">. The major retinal cell types were identified and differential expression between Akita and control mice performed using the Seurat
+package v4(Hao, Hao et al. 2021). The output files used for analysis in the HIVE browser are available from as </span><span
+ class="tm59">&#8216;Example dataset 1&#8217; from </span><u><a href="https://github.com/QUB-Simpson-lab/HIVE_browser"><span
+ class="tm59">https://github.com/QUB-Simpson-lab/HIVE_browser</span></a></u><span class="tm59">. </span></p>
+<p class="Normal"><u><s><span class="tm86"></span></s></u>Dataset 2: (Xin, Kim et al. 2016)4 Human islet cells. The original data was generated by Xin et al (Xin, Kim et al. 2016), and is available from GEO, accession number
+GSE81608. The samples were divided into male and female and differential expression for each cell type and sex determined using the Seurat package v4 (Hao, Hao et al. 2021). The output files used for analysis in the HIVE browser
+are available as a single multi-sample file (Example dataset 2) and in the cutom HIVE format (Example dataset 3) from https://github.com/QUB-Simpson-lab/HIVE_browser. </p>
+<p class="Normal tm64"><span class="tm59"></span><strong><span class="tm67">Dataset 2:</span></strong><span class="tm59"> Human islet cells. The original data was generated by Xin et al (Xin, Kim et al. 2016), and is available
+from GEO, accession number GSE81608. The samples were divided into male and female and differential expression for each cell type and sex determined using the Seurat package v4 (Hao, Hao et al. 2021). The output files used
+for analysis in the HIVE browser are available as a single multi-sample file (Example dataset 2) and in the cutom HIVE format (Example dataset 3) from https://github.com/QUB-Simpson-lab/HIVE_browser. </span></p>
+<p class="Normal tm64">&#160;</p>
+<p class="Normal tm64"><u><span class="Hyperlink"></span><a href="#Contents_">Back to Contents</a></u></p>
+<p class="Normal tm64"><span class="tm59">&#160;</span></p>
+<h1 class="tm65"><span class="tm66"><a id="aBibliography"></a><a id="aToc140839017"></a>Bibliography</span></h1>
+<p class="Normal">&#160;</p>
+<p class="EndNoteBibliography">Hao, Y., et al. (2021). &quot;Integrated analysis of multimodal single-cell data.&quot; <u>Cell</u> <strong><span
+ class="Strong">184</span></strong>(13): 3573-3587 e3529.</p>
+<p class="EndNoteBibliography tm87">Xin, Y., et al. (2016). &quot;RNA Sequencing of Single Human Islet Cells Reveals Type 2 Diabetes Genes.&quot; <u>Cell Metab</u> <strong><span
+ class="Strong">24</span></strong>(4): 608-615.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class="EndNoteBibliography tm87">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</p>
+<p class="EndNoteBibliography">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal PageBreak">&#160;</p>
+<p class="Normal">Extra stuff</p>
+<p class="Normal">&#160;</p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">Combined file</span></p>
+<p class="Normal tm78"><span class="tm59">Optionally a &#39;-&#39; in the filename between the CellType and TimePoint (or Condition, etc), eg: &quot;Amacrine-EARLY.csv&quot;</span></p>
+<p class="Normal tm81"><span class="tm84"></span><span class="tm83"><br /></span><strong><span class="tm82">OR:</span></strong><span
+ class="tm83"><br /></span><strong><span class="tm82">(2) One CSV file containing differential (eg. between test and control samples) fold changes for all the samples</span></strong><span
+ class="tm85">,</span><span class="tm83"><br /></span><span class="tm85">which can be downloaded using the &#39;Optionally: Download your data as single data file&#39; link after selecting your differenital</span><span
+ class="tm83"><br /></span><span class="tm85">expression files. This single file can make future loading of data easier, as just need to open one file then.</span><span
+ class="tm83"><br /></span><span class="tm85">It&#39;s format is, eg:</span></p>
+<p class="Normal tm78"><span class="tm77">Gene,Amacrine:EARLY,Amacrine:MID,Amacrine:LATE,Bipolar:EARLY,Bipolar:MID,Bipolar:LATE,Cone:EARLY,Cone:MID,Cone:LATE<br />Aak1,0,0.6,0,0,-2.1,0,0,0,0.4<br />Aamp,0,0.3,0,0,-0.6,0,0,0.3,0<br />Aars,0,0.4,0,0,-0.3,0,1.2,0,0<br />...etc....</span></p>
+<p class="Normal tm81"><span class="tm84"></span><span class="tm85">where:</span></p>
+<p class="Normal tm79"><span class="tm83"></span><span class="tm80">&#183; </span><span class="tm83">first column is &#39;Gene&#39; name</span></p>
+<p class="Normal tm79"><span class="tm83"></span><span class="tm80">&#183; </span><span class="tm83">then several columns with heading format: CellType:TimePoint (or CellType:Condition/Location, etc)</span></p>
+<p class="Normal tm79"><span class="tm83"></span><span class="tm80">&#183; </span><span class="tm83">then gene/protein fold-change rows in format: GeneName, Fold-change:Optional p-value:Optional pct.1:Optional pct2, .....</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><strong><span class="tm67">Multilevel Explain format:&#8217;s names</span></strong></p>
+<p class="Normal"><strong><span class="tm67">Eg Islet</span></strong></p>
+<p class="Normal"><span class="tm59">Can be used for other datatypes </span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">For this vignette we will use a dataset of single cell RNA-Seq from human islet cells from diabetic and non-diabetic individuals [REF] We have </span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">Import data into HIVE</span></p>
+<p class="Normal"><span class="tm59">Select genes of interest</span></p>
+<p class="Normal"><span class="tm59">For example, genes which are not significantly changed in females but go down in males </span></p>
+<p class="Normal"><span class="tm59">Enriched in secretory vesicles</span></p>
+<p class="Normal"><span class="tm59">Other way round &#8211; genes high in females, uncganged in males - Chromogranin A (in vesicle) and INS-IGF2 readthrough (723961) and RIN2 Ras and Rab interactor 2, a small GTPase involved
+in membrane trafficking in the early endocytic pathway.</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">Similarly in alpha cells &#8211; genes higher in females (including down in male) enriched in extracellular vesicle</span></p>
+<p class="Normal"><span class="tm59"></span>
+<img src="21_07_23_HIVE_vignette_draft_files/img00021.PNG" width="602" height="390" alt="" /></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">G profiler</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59"></span>
+<img src="21_07_23_HIVE_vignette_draft_files/img00022.PNG" width="602" height="318" alt="" /></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59"></span>
+<img src="21_07_23_HIVE_vignette_draft_files/img00023.PNG" width="602" height="462" alt="" /></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59"></span>
+<img src="21_07_23_HIVE_vignette_draft_files/img00024.PNG" width="602" height="313" alt="" />
+<img src="21_07_23_HIVE_vignette_draft_files/img00025.PNG" width="602" height="198" alt="" /></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">For STRING set additional network nodes to 0 default (keep option to increase)</span></p>
+<p class="Normal"><span class="tm59">When have selected genes and looked at STRING DB make easier to select different genes and rerun String. Way to clear the String input?</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59"></span>
+<img src="21_07_23_HIVE_vignette_draft_files/img00026.PNG" width="602" height="235" alt="" /> 
+<img src="21_07_23_HIVE_vignette_draft_files/img00027.PNG" width="602" height="236" alt="" /></p>
+<p class="Normal PageBreak"><span class="tm59"></span>
+<img src="21_07_23_HIVE_vignette_draft_files/img00028.PNG" width="602" height="310" alt="" /></p>
+<p class="Normal"><span class="tm59">Analysis by age</span></p>
+<p class="Normal"><span class="tm59">In beta cells:</span></p>
+<p class="Normal"><span class="tm59">Higher in over 45 &#8211; mostly mitochondria tRNA genes</span></p>
+<p class="Normal"><span class="tm59">Higher in under 45 &#8211; various including ribosomal and INS(!)</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">Down in under 45 mostly mitochondria tRNA genes</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">Down &gt;0.5 and significant &lt;0.01 in B cell at either age group: Extracellular vesicles</span></p>
+<p class="Normal"><span class="tm59">&#160;</span></p>
+<p class="Normal PageBreak"><span class="tm59">&#160;</span></p>
+<p class="Normal"><span class="tm59">GEO submission</span></p>
+<p class="Normal"><span class="tm59">Retinas were dissected from xxx month old control and Akita mice, cells dissociated [REF] and processed on the 10X Genomics platform (gex v2). Sequence data was processed  </span></p>
+<p class="Normal">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal">&#160;</p>
+<p class="Normal PageBreak">&#160;</p>
+<p class="Normal">&#160;</p>
+</body>
+</html>
