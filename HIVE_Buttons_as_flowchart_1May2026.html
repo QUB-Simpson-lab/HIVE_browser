@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIVE Buttons as Flowchart</title>
+    <style>
+        /* Base page styling for presentation */
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 2rem;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            line-height: 1.5;
+			width: 100%;
+        }
+        .container {
+            max-width: 100%; /* 1100px Increased width to accommodate the flowchart */
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+        }
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #111827;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+
+        /* ---------------------------------------------------
+           CORE POSITIONING CSS 
+           --------------------------------------------------- */
+
+
+
+        /* Reset default browser margins on the input for pixel-perfect alignment */
+        input[type="radio"] {
+            margin: 0;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #3b82f6; /* Modern CSS to color the radio button natively */
+            cursor: pointer;
+        }
+
+        /* ---------------------------------------------------
+           FLOWCHART POSITIONING CSS (Matching the Image)
+           --------------------------------------------------- */
+        
+        .flowchart-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+            padding: 1rem 0;
+            min-width: 100%; /* 900px  Ensures layout doesn't crush on small screens */
+        }
+
+        .flowchart-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Groups items vertically into columns */
+        .flow-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Styling the label to look like the flowchart nodes */
+        .flow-node {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #dbeafe; /* Light blue background */
+            border: 2px solid #bfdbfe; /* Slightly darker blue border */
+            border-radius: 999px; /* Pill shape */
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1e3a8a; /* Dark blue text */
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            position: relative;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .flow-node:hover {
+            background-color: #bfdbfe;
+            border-color: #93c5fd;
+            transform: translateY(-1px);
+        }
+
+        /* Completely hide the default radio input */
+        .flow-node input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* Style the label when its internal radio button is checked. 
+           (Requires modern browser support for the :has selector) */
+        .flow-node:has(input[type="radio"]:checked) {
+            background-color: #2563eb;
+            border-color: #1d4ed8;
+            color: white;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+
+        /* SVGs used to draw the connecting lines */
+        .connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0284c7; 
+            font-weight: bold;
+            padding: 0 0.5rem;
+        }
+
+        .svg-connector {
+            width: 45px;
+            flex-shrink: 0;
+        }
+        
+        .svg-connector path {
+            stroke: #0284c7;
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+	
+        <!-- h2>Positioning Radio Elements</h2 -->
+
+        <!-- Example 4: Flowchart Layout matching Image -->
+        <div class="section">
+            <div class="section-title">HIVE Flowchart Layout</div>
+            <!-- p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 1.5rem;">
+                By hiding the radio input and styling the <code>&lt;label&gt;</code>, we can create complex interactive UI elements. Flexbox columns combined with SVGs recreate the branching flowchart. Try clicking them!
+            </p -->
+            
+            <div class="flowchart-wrapper">
+                <div class="flowchart-row">
+                    
+                    <!-- Column 1 -->
+                    <div class="flow-col">
+                        <label class="flow-node"><input type="radio" name="flow" value="1">(1) Input data</label>
+                    </div>
+                    
+                    <div class="connector">→</div>
+                    
+                    <!-- Column 2 -->
+                    <div class="flow-col">
+                        <label class="flow-node"><input type="radio" name="flow" value="2">(2) Select ids/species/columns</label>
+                    </div>
+
+                    <div class="connector">→</div>
+                    
+                    <!-- Column 3 -->
+                    <div class="flow-col">
+                        <label class="flow-node"><input type="radio" name="flow" value="3">(3) Display options</label>
+                    </div>
+
+                    <!-- Branching SVG (1 to 3) -->
+                    <svg class="svg-connector" viewBox="0 0 50 120" style="height: 120px;">
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7" />
+                            </marker>
+                        </defs>
+                        <path d="M 0 60 Q 25 60 45 15" marker-end="url(#arrow)" />
+                        <path d="M 0 60 L 45 60" marker-end="url(#arrow)" />
+                        <path d="M 0 60 Q 25 60 45 105" marker-end="url(#arrow)" />
+                    </svg>
+
+                    <!-- Column 4 -->
+                    <div class="flow-col">
+                        <label class="flow-node"><input type="radio" name="flow" value="4">(4) UpSet/Venn</label>
+                        <label class="flow-node"><input type="radio" name="flow" value="5">(5) Filter rows:10377</label>
+                        <label class="flow-node"><input type="radio" name="flow" value="11" checked>(6) Volcano plot</label> <!-- was (11) -->
+                    </div>
+
+                    <!-- Merging SVG (3 to 1) -->
+                    <svg class="svg-connector" viewBox="0 0 50 120" style="height: 120px;">
+                        <path d="M 0 10 Q 25 25 45 40" marker-end="url(#arrow)" />
+                        <path d="M 0 60 L 45 60" marker-end="url(#arrow)" />
+                        <path d="M 0 110 Q 25 95 45 80" marker-end="url(#arrow)" />
+                    </svg>
+
+
+                    <!-- Column 5 -->
+                    <div class="flow-col">
+                        <label class="flow-node"><input type="radio" name="flow" value="6">(7) Selected genes:10377</label> <!-- was (6) -->
+                    </div>
+
+                    <!-- Branching SVG (1 to 4) -->
+                    <svg class="svg-connector" viewBox="0 0 50 160" style="height: 160px;">
+                        <path d="M 0 80 Q 25 80 45 15" marker-end="url(#arrow)" />
+                        <path d="M 0 80 Q 25 80 45 60" marker-end="url(#arrow)" />
+                        <path d="M 0 80 Q 25 80 45 100" marker-end="url(#arrow)" />
+                        <path d="M 0 80 Q 25 80 45 145" marker-end="url(#arrow)" />
+                    </svg>
+
+                    <!-- Column 6 -->
+                    <div class="flow-col">
+                        <label class="flow-node"><input type="radio" name="flow" value="8">(8) STRING</label>
+                        <label class="flow-node"><input type="radio" name="flow" value="7">(9) g:Profiler</label><!-- was (7) -->
+                        <label class="flow-node"><input type="radio" name="flow" value="9">(10) DAVID</label> <!-- was (9) -->
+                        <label class="flow-node"><input type="radio" name="flow" value="10">(11) Heatmap image</label><!-- was (10) -->
+                    </div>
+                </div>
+
+                <!-- Bottom Row (Centered below the flow) -->
+                <div class="flowchart-row">
+                     <label class="flow-node"><input type="radio" name="flow" value="12">(12) Help/Feedback</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
