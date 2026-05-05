@@ -8,6 +8,9 @@
       fixed error about:  "neglog_pvj_min=0  =0 or <0" - see screen shot.
       Upload my list of genes of interest .....
 // ..................................
+
+
+// TO draw selection box on canvas: https://stackoverflow.com/a/73202984/3697478
 -->
 
   <meta charset="utf-8">
@@ -58,14 +61,16 @@ id="show_hide_input_data_parameters_table_button" style="border: 1px solid #0066
 id="show_heatmap_with_column_names_and_types_button" style="border: 1px solid #0066cc; background-color: #0099cc; color: #ffffff;" 
 
 */
-  input, select, textarea, button { font-family: inherit; font-weight: inherit; font-size: inherit; border-radius: 7px; }
+  input, select, textarea, button, input[type="file"]::file-selector-button { font-family: inherit; font-weight: inherit; font-size: inherit; border-radius: 7px; }
 
-  button:disabled, input:not([type=button]):disabled   {color:#404040; background: #e6eeff; border: none; font-weight:bold;} /* outline: none ?*/
+  button:disabled, input:not([type=button]):disabled, input[type="file"]:disabled::file-selector-button  {color:#404040; background: #e6eeff; border: none; font-weight:bold;} /* outline: none ?*/
   
-  button:not(:disabled), input[type=button]:not(:disabled), input[type=file]:not(:disabled), input[type=submit]:not(:disabled) {border: 1px solid #0066cc; background-color: #0099cc; color: #ffffff;} /* padding: 5px 5px; */
+  button:not(:disabled), input[type=button]:not(:disabled), input[type=file]:not(:disabled), input[type=submit]:not(:disabled), input[type="file"]:not(:disabled)::file-selector-button {border: 1px solid #0066cc; background-color: #0099cc; color: #ffffff;} /* padding: 5px 5px; */
 
-  button.red:not(:disabled), input.red[type=button]:not(:disabled) {border: 1px solid #0066cc; background-color: #ff6666; color: #ffffff;} /* padding: 5px 5px; */
-  button.big_red:not(:disabled), input.big_red[type=button]:not(:disabled) {border: 1px solid #0066cc; background-color: #ff6666; color: #ffffff; padding: 10px; font-weight:bold;} /* padding: 5px 5px; */
+  button.red:not(:disabled), input.red[type=button]:not(:disabled), input.red[type="file"]:not(:disabled)::file-selector-button {border: 1px solid #0066cc; background-color: #ff6666; color: #ffffff;} /* padding: 5px 5px; */
+  
+  button.big_red:not(:disabled), input.big_red[type=button]:not(:disabled),  input.big_red[type="file"]:not(:disabled)::file-selector-button {border: 1px solid #0066cc; background-color: #ff6666; color: #ffffff; padding: 10px; font-weight:bold;} /* padding: 5px 5px; */
+
 
 /* string buttons style="background-color: #0099cc; padding: 10px; */
   
@@ -75,15 +80,43 @@ id="show_heatmap_with_column_names_and_types_button" style="border: 1px solid #0
  .required_span_info {border: 2px solid red; background-color: #fffafa;}
   */
   
-  input:not(:disabled), select:not(:disabled), button:not(:disabled) {cursor:pointer;} /* background-color: #6495ed; color:white; */
+  input:not(:disabled), select:not(:disabled), button:not(:disabled), input[type="file"]:not(:disabled)::file-selector-button {cursor:pointer;} /* background-color: #6495ed; color:white; */
 
-  input:not([type=radio]):disabled   {color:#404040;} /* outline: none ?*/
+  input[type=button]:not(:disabled):hover, input[type=submit]:not(:disabled):hover, input[type=file]:not(:disabled):hover, input[type=text]:not(:disabled):hover select:not(:disabled):hover, button:not(:disabled):hover, input[type="file"]::file-selector-button:hover {
+    /* background-color: #81ecec; */
+    border: 1px solid #00cec9;
+  }
+
+
+  input:not([type=radio]):disabled, input[type="file"]:disabled::file-selector-button {color:#404040;} /* outline: none ?*/
   /* input[type=text]:disabled   {color:#000000; background: #e6eeff; border: none;} */ /* outline: none ?*/
   select:disabled {color:#404040; background: #e6eeff; border: none; font-weight:bold;} /* outline: none ?*/
 
 
+  
+
+  /* file-selector-button https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::file-selector-button */
+  /*
+  input[type="file"]:not(:disabled)::file-selector-button {
+    border: 2px solid #6c5ce7;
+    padding: 0.2em 0.4em;
+    border-radius: 0.2em;
+    background-color: #a29bfe;
+    transition: 1s;
+	cursor:pointer;
+  }
+
+  input[type="file"]::file-selector-button:hover {
+    background-color: #81ecec;
+    border: 2px solid #00cec9;
+  }
+  */
+  
+  
+
   input:required:not(:disabled), select:required:not(:disabled), textarea:required:not(:disabled) {border: 2px solid red;}
   input:required:invalid, textarea:required:invalid, select:required:invalid {background-color: #fffafa;}
+
 
   /* https://css-tricks.com/snippets/html/form-submission-new-window/
   <form id="string_embedded_linkout" action="https://string-db.org//cgi/network" method="post" target="_blank"><input type="hidden" name="identifiers" value="10090.ENSMUSP00000010807%0d10090.ENSMUSP00000015829%0d10090.ENSMUSP00000025243%0d10090.ENSMUSP00000043424%0d10090.ENSMUSP00000045291%0d10090.ENSMUSP00000052872%0d10090.ENSMUSP00000072483%0d10090.ENSMUSP00000099634%0d10090.ENSMUSP00000109215%0d10090.ENSMUSP00000112908%0d10090.ENSMUSP00000126464"><input type="hidden" name="network_flavor" value="actions"><input type="hidden" name="species" value="10090"><input type="hidden" name="required_score" value="0"><input type="hidden" name="hide_node_labels" value="False"><input type="hidden" name="hide_disconnected_nodes" value="False"><input type="hidden" name="block_structure_pics_in_bubbles" value="False"><input type="hidden" name="suppressDisambiguation" value="1"><input type="hidden" name="caller_identity" value="embedded_svg"></form> */
@@ -269,6 +302,7 @@ details.tooltip[open] p, details.tooltip[open] div {
   background-color:white;
   border: 0;
   padding: 0;
+  cursor: crosshair;
 } 
 
 #volcano_tip_canvas {
@@ -284,6 +318,26 @@ details.tooltip[open] p, details.tooltip[open] div {
 /* The pointer-events CSS property sets under what circumstances (if any) a particular graphic element can become the target of pointer events.*/
 
 /* z-index so that top canvas will be above the Volcano Plot title td */
+
+
+
+/* For magnifier: */
+* {box-sizing: border-box;}
+
+.img-magnifier-container {
+  position: relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /* Set the size of the magnifier glass: */
+  width: 100px;
+  height: 100px;
+}
+
 
 
 /*
@@ -361,37 +415,29 @@ body { cursor: url('data:image/x-icon;base64,AAACAAEAICAQAAAAAADoAgAAFgAAACgAAAA
 */
 /* From: https://www.cursor.cc/?action=icon&file_id=53320 */
 
+
 /* 32x32  bit: */
-body { cursor: url('data:image/png;base64,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'), auto; }
+
+body { cursor: url('data:image/png;base64,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') 16 16, auto; }
+
 /**  From: https://pixelpanda.ai/free-tools/image-to-base64 /
 
-/*
-64 bit:
-body { cursor: url('data:image/png;base64,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'), auto; }
+
+/* 64x64 bit: */
+/* body { cursor: url('data:image/png;base64,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') 32 32, auto; }
 */
 /* https://www.base64-image.de/ */
 
 
-
 /* body { cursor: url("bee.png") 16 16, auto; }   */
-  /* The '16 16' above is optional, is for hotspot control (the “click point” of the cursor). See: https://css-tricks.com/almanac/properties/c/cursor/ */
+  /* The '16 16' above is optional, is for hotspot control (the “click point” of the cursor). See: https://css-tricks.com/almanac/properties/c/cursor/ 
+  So for a 32x32 cursor, this would set the hotspot to centre at x=16, y=16, from top-left corner of image 
+  */
+  
+  /*  The first number is the x-coordinate, and the second number is the y-coordinate. The example will set the hotspot to be the pixel at (4,12) from the top left (0,0).*/
+  
   /* 'auto' is fallback value for unsupported browsers */
   /* Use a small image (≤32x32 or 64x64 px): Best formats: .cur (Windows cursor format. Is best), Or .png (works in modern browsers).   Must be hosted and accessible */
-
-
-Banksy Installs Statue of Man Blinded by His Own Flag in Central London 
-This work depicts a man in a suit marching off a pedestal while carrying a flag that completely covers his face in Waterloo Place. At the base, a signature: Banksy.
-
-The location is no accident. Waterloo Place was conceived in the 19th century as a showcase of British imperialism and military dominance.
-
-
-
-https://www.youtube.com/watch?v=ooZFTMb6hiw
-
-
-Although individually rare, which means affecting less than 1 in 2,000 people, all rare diseases together affect
-~475 million people globally, with more than 110,000 people affected by rare diseases across Northern Ireland. 
-
 
 </style>
 
@@ -1710,12 +1756,16 @@ Pressing Space to select/deselect "focused" select options.
 
  <!-- This canvas needs to be outside the above table, as if canvas image is wide then it makes the table wide so the above moves to the right out of view. -->
 
-<!-- Using this wrapper div so I can position the hover volcano_tip_canvas correctly. -->
- <div id="volcano_plot_wrapper_div" style="position: relative;">
-  <canvas id="my_volcano_plot_canvas" width="0" height="0">Your Browser doesn’t support Canvas.</canvas>
+ <div class="img-magnifier-container">
+  <!-- img id="myimage" src="img_house.jpg" width="600" height="400" alt="House" -->
+  <!-- Using this wrapper div so I can position the hover volcano_tip_canvas correctly. -->
+  <div id="volcano_plot_wrapper_div" style="position: relative;">
+   <canvas id="my_volcano_plot_canvas" width="0" height="0">Your Browser doesn’t support Canvas.</canvas>
  
-  <canvas id="volcano_tip_canvas" width="0" height="0">Your Browser doesn’t support Canvas</canvas>
- </div>
+   <canvas id="volcano_tip_canvas" width="0" height="0">Your Browser doesn’t support Canvas</canvas>
+  </div>
+ </div> 
+ 
 <p id="note_below_volcano_plot" style="text-align: center; font-size: 80%;"></p>
  <!-- Not using image-rendering: pixelated; as want aliasing for the dots -->
  <!-- canvas id="canvasTable" width=”1800px” height=”700px” style=”position: absolute; top: 0px; left: 0px; z-index: 2; width: 1428px; height: 761px; padding-top: 0px; padding-left: 0px;”>Your Browser doesn’t support Canvas.</canvas -->
@@ -1841,6 +1891,7 @@ Pressing Space to select/deselect "focused" select options.
 
 
 <script>
+
 'use strict'; // ES5+ to report undeclared variables.
 
 
@@ -2201,7 +2252,7 @@ console.log("show_heatmap_scale(): fc_max:",fc_max, fc_max_higher, "  fc_min:", 
 //console.log("show_heatmap_scale(): 1.3");
   // OLD: for (var fc = fc_min_lower; fc <= fc_max_higher; fc += fc_step) {
   for (var i=0; i<fc_list.length; i++) {
-    var fc = fc_list[i];
+    fc = fc_list[i]; // This 'fc' is declared above already.
 
     //if (fc == 0) html += '<td> &nbsp; 0 &nbsp; </td>';
     //else {
@@ -2524,12 +2575,13 @@ function set_celltype_time_checkboxes_to_match_head_checkboxes() {
 
   // Using these arrays as dict with empty head2 key could cause a problem.
   var celltypes_checked = new Array(celltypes.length),
-      times_checked     = new Array(times.length);
+      times_checked     = new Array(times.length),
+	  elem, checked;
 
   for (var j=1; j<head1.length; j++) { // correctly j=1 as head starts at 'Gene' at j=0
-    var elem = document.getElementById('fc_in_celltype_and_time_cb_'+j),
-        checked = elem.checked ? 'c' : 'n',
-        pos1 = celltypes.indexOf(head1[j]),
+    elem = document.getElementById('fc_in_celltype_and_time_cb_'+j),
+    checked = elem.checked ? 'c' : 'n';
+    var pos1 = celltypes.indexOf(head1[j]),
         pos2 = times.indexOf(head2[j]);
 
   //console.log("checked:",checked,"  pos1:",pos1," pos2:",pos2,"  celltypes_checked[pos1]=",celltypes_checked[pos1], "  times_checked[pos2]=",times_checked[pos2]);
@@ -2939,7 +2991,7 @@ function show_heatmap_thead() {
 
   // I could use this same logic to draw the header row in heatmap image download:
   var head1_last = null, head1_colspan, head2_style;
-  if (head1.length != head2.length) {alert("show_heatmap_thead(): head1.length != head2.length"); show_reading_and_loading_messages("head1.length != head2.length", 'red'); return false;} // shouldn't ever happen anyway.
+  if (head1.length != head2.length) {show_loading_error("show_heatmap_thead(): head1.length="+head1.length+" != head2.length"+head2.length, true); return false;} // shouldn't ever happen anyway.
 
   // for (var i=1; i<head1.length; i++) console.log("i=",i,"  head1=",head1[i],"  head2=",head2[i]);
 
@@ -3063,11 +3115,11 @@ function set_gene_link(this_link, genename) {
 
   if (taxid === "") {alert("First: You need to select the Organism/Species using the drop-down menu near top of this HIVE webpage."); this_link.target="_self"; this_link.href="#organism_species"; return false;} // false cancel the action.
 
-  var gene_or_protein_url = gene_symbol_type_is_gene_or_protein(); // was: ['ENSEMBL_PROTEIN_ID', 'REFSEQ_PROTEIN', 'UNIPROT_ID'].indexOf(gene_symbol_type) >= 0 ? 'protein' : 'gene'; 
+  var pos, gene_or_protein_url = gene_symbol_type_is_gene_or_protein(); // was: ['ENSEMBL_PROTEIN_ID', 'REFSEQ_PROTEIN', 'UNIPROT_ID'].indexOf(gene_symbol_type) >= 0 ? 'protein' : 'gene'; 
 
   if (gene_symbol_type === "ENSEMBL_TRANSCRIPT_ID") {
     // var name_type = '[Gene/Protein Name]';
-    var pos = genename.indexOf('.'); // To remove the version suffix
+    pos = genename.indexOf('.'); // To remove the version suffix
     if (pos !== -1) genename = genename.substr(0,pos);
     pos = genename.indexOf(':'); // To remove my position suffix for Nanocompore directRNA data.
     if (pos !== -1) genename = genename.substr(0,pos);
@@ -3078,7 +3130,7 @@ function set_gene_link(this_link, genename) {
     // var name_type = '[Gene Name]';
     var name_type = '[Gene/Protein Name]';
 
-    var pos = genename.indexOf(':'); // To remove my position suffix for Nanocompore directRNA data.
+    pos = genename.indexOf(':'); // To remove my position suffix for Nanocompore directRNA data.
     if (pos !== -1) genename = genename.substr(0,pos);
 
     if (gene_symbol_type === "TRANSCRIPT_SYMBOL") {
@@ -3120,7 +3172,7 @@ function select_all_options(select_elem_id, all_or_none) {
 function select_all_checkboxes(checkbox_name, all_or_none) {
   //var options = select_elem.options;
   var checkboxes = document.getElementsByName(checkbox_name), // is getElementsByName() NOT getElementById()
-      checked = all_or_none==='all'
+      checked = all_or_none==='all';
   for (var i=0; i<checkboxes.length; i++) {
     // var o = checkboxes[i];
     checkboxes[i].checked = checked; // && !o.disabled;
@@ -3576,7 +3628,7 @@ console.log("show_heatmap_tbody(): min_num_fc_cols="+min_num_fc_cols+"  min_cols
 
   document.getElementById('heatmap_tbody').innerHTML = html;
 
-  show_filter_heatmap_message(row_count+" genes (from total of "+(logfc.length-1)+") are listed in the heatmap below."); // -1 as first row in logfc is the column headings.
+  show_filter_heatmap_message(row_count+" genes (from total of "+(logfcs.length-1)+") are listed in the heatmap below."); // -1 as first row in logfc is the column headings.
   show_num_filtered_rows(row_count);
 
   show_display_options_message("");
@@ -5198,7 +5250,7 @@ console.log("parse_single_file_data(): head2=",head2);
        // if (lines[i].charAt(0) == "#") continue; // optionally ignore comment lines, that start with '#'?
 
        c = lines[i].split(delim);
-       if (c.length != num_cols) {show_reading_and_loading_messages("At line "+(i+1)+" in the csv file, the number of columns is "+c.length+", but there are "+num_cols+" headings in the first line:\n"+lines[i], 'red'); return false;}
+       if (c.length != num_cols) {show_loading_error("At line "+(i+1)+" in the csv file, the number of columns is "+c.length+", but there are "+num_cols+" headings in the first line:\n"+lines[i]); return false;}
        
        fc_row = new Array(num_cols); fc_row[0] = c[0].replace(/</g,'&lt;').replace(/>/g,'&gt;'); // c[0] is the gene_name. Remove any html tag start or end characters from the gene name.
        // Leave this gene column undefined in the pvalue and pct arrays to reduce memory usage. In future I'll put gene into a separate array:
@@ -5220,7 +5272,7 @@ console.log("parse_single_file_data(): head2=",head2);
             f = c[j].split(':'); // So can optionally have foldchange:pvalue:pct1:pct2
             // if (f[0] === "") {fc_row[j] = pv_row[j] = pct1_row[j] = pct2_row[j] = null;} // So missing values are set to null, not zero.
             fc_row[j] = Number(f[0]);
-            if (isNaN(fc_row[j])) {show_reading_and_loading_messages("ERROR: invalid number: '"+f[0]+"' in "+c[j]+" in line "+(i+1)+ " column "+(j+1)+": " +lines[i], 'red'); return false;}
+            if (isNaN(fc_row[j])) {show_loading_error("ERROR: invalid number: '"+f[0]+"' in "+c[j]+" in line "+(i+1)+ " column "+(j+1)+": " +lines[i]); return false;}
             // console.log("f",i,j,f);
 
             if (has_pvalues_columns) pv_row[j] = f[1]==="" ? null : Number(f[1]);
@@ -5478,7 +5530,7 @@ function parse_single_non_hive_file_data(data, thefilename) {
  
   //var arr = csvToArray(data, delim);
   var arr = csv2arr(data, delim); // returns A single empty row if no data: [["",],]
-  if (arr.length === 0 || (arr.length === 1 && arr[0].length<2)) {show_reading_and_loading_messages("ERROR: parse_single_non_hive_file_data(): File is empty: "+thefilename, 'red'); return false;} 
+  if (arr.length === 0 || (arr.length === 1 && arr[0].length<2)) {show_loading_error("ERROR: parse_single_non_hive_file_data(): File is empty: "+thefilename); return false;} 
 
   var headings = arr[0]; // should be:
 
@@ -5504,7 +5556,8 @@ function parse_single_non_hive_file_data(data, thefilename) {
      // If read all files, then ask user to identify unknown headings:
 
      // if (num_files_with_unknown_headings > 0 && (num_files_read + num_files_with_unknown_headings === num_files)) 
-
+	 
+     // set_to_default_cursor();
 //     return false;
   }
 
@@ -5539,6 +5592,8 @@ function parse_single_non_hive_file_data(data, thefilename) {
   show_read_input_data_message('<br>&nbsp;<br>File read successfully.<br>&nbsp;<br>Now <b>click the \'<span style="color: white; background-color:red;">(2) Select ids/species/columns</span>\' tab</b> above.', 'green', true);
 
   set_select_ids_species_columns_tab_color('red');
+
+  set_to_default_cursor();
 }
 
 
@@ -5586,21 +5641,21 @@ function validate_single_non_hive_file_input_data_parameters() {
          sub_name  = document.getElementById("heading_sub_name_"  +(i+1)).value.trim(),
          type      = document.getElementById("heading_type_"      +(i+1)).value;
 
-     if (main_name.indexOf(':') > -1) {msg = "Column main name must not contain a colon (':'), but column ("+(i+1)+") does: '" + main_name+"'"; alert(msg); show_reading_and_loading_messages(msg,'red'); return false;} // or I could convert colon to comma, etc.
+     if (main_name.indexOf(':') > -1) {show_loading_error("Column main name must not contain a colon (':'), but column ("+(i+1)+") does: '" + main_name+"'", true); return false;} // or I could convert colon to comma, etc.
    
-     if      (type === 'select') {msg = "Please select a column type for column ("+(i+1)+")"; alert(msg); show_reading_and_loading_messages(msg,'red'); return false;}
+     if      (type === 'select') {show_loading_error("Please select a column type for column ("+(i+1)+")", true); return false;}
      
      else if (type === 'none') continue;
 
      else if (type === 'id') {
-        if (j_gene_id !== -1) {msg = "You have selected two columns: (" + (j_gene_id+1) + ") and (" +(i+1)+ ") for 'Gene/Protein ID'. Please just select one column."; alert(msg); show_reading_and_loading_messages(msg,'red'); return false;}
+        if (j_gene_id !== -1) {show_loading_error("You have selected two columns: (" + (j_gene_id+1) + ") and (" +(i+1)+ ") for 'Gene/Protein ID'. Please just select one column.", true); return false;}
         j_gene_id = i;
      }
 
      else {
 
         if (main_name == "") {
-          if (last_main_name === "") {msg = "You need to set the column name for column ("+(i+1)+")"; alert(msg); show_reading_and_loading_messages(msg,'red'); return false;}
+          if (last_main_name === "") {show_loading_error("You need to set the column name for column ("+(i+1)+")", true); return false;}
           main_name = last_main_name;
           if (sub_name == "") {
              sub_name = last_sub_name;
@@ -5633,15 +5688,15 @@ function validate_single_non_hive_file_input_data_parameters() {
         else if (type === 'pct1') {if (key in jpct1_dict) {msg = "At column ("+(i+1)+"): 'pct.1: percentage of cells ....' already selected at column ("+(jpct1_dict[key]+1)+") for this sample";} jpct1_dict[key] = i;}
         else if (type === 'pct2') {if (key in jpct2_dict) {msg = "At column ("+(i+1)+"): 'pct.2: percentage of cells ....' already selected at column ("+(jpct2_dict[key]+1)+") for this sample";} jpct2_dict[key] = i;}
         else {msg = "Unexpected column type="+type + " for column ("+(i+1)+")";}
-        if (msg !== "") {alert(msg); show_reading_and_loading_messages(msg,'red'); return false;}
+        if (msg !== "") {show_loading_error(msg, true); return false;}
      }
 
   } // end of: for (var i=0; i < file_heading_arrays.length; i++ ) ...
 
   // Check all columns have same set of column types
   // has_pct12_columns = false, has_pvalues_columns = false; Are initialised to false already in initialise_global_data()
-  if (names.length === 0) {msg = "Please enter columns names, as column names.length === 0"; alert(msg); show_reading_and_loading_messages(msg,'red'); return false;}
-  if (names.length !== types.length) {msg = "ERROR: names.length !== types.length"; alert(msg); show_reading_and_loading_messages(msg,'red'); return false;}
+  if (names.length === 0) {show_loading_error("Please enter columns names, as column names.length === 0", true);  return false;}
+  if (names.length !== types.length) {show_loading_error("ERROR: names.length !== types.length", true); return false;}
 
 
 //console.log("names:",names);
@@ -5655,7 +5710,7 @@ function validate_single_non_hive_file_input_data_parameters() {
       key_in_jpct1_dict = (key in jpct1_dict),
       key_in_jpct2_dict = (key in jpct2_dict);
 
-  if (!key_in_jfc_dict) {msg = "Please select a 'Fold-change' for "+head1[0] + " : " + head2[0]; alert(msg); show_reading_and_loading_messages(msg,'red'); return false;}
+  if (!key_in_jfc_dict) {show_loading_error("Please select a 'Fold-change' for "+head1[0] + " : " + head2[0], true); return false;}
 
   if (key_in_jpct1_dict !== key_in_jpct2_dict) {msg += "For column (1): pct.1: != pct.2\n\n";}
 //copy_selected_genes_table_row
@@ -5679,6 +5734,8 @@ function validate_single_non_hive_file_input_data_parameters() {
      alert( "Please correct the data input parameters, as explained in red text, for:" +(err1==="" ? "" : "\n  (b) Organism/Species.") + (msg==="" ? "" : "\n  (c) Column names.") );
      
      if (err1 !== "") document.getElementById("organism_species_anchor").scrollIntoView(); // using this anchor as otherwise the select is hidden behind the table headder
+
+     set_to_default_cursor();
      return false;
      }
 
@@ -5696,6 +5753,8 @@ function validate_single_non_hive_file_input_data_parameters() {
   has_pct12_columns   = key_in_jpct1_dict && key_in_jpct2_dict;
 
 console.log("jpv_dict:",jpv_dict, "  jpv_cols:",jpv_cols);
+
+  set_to_default_cursor();
   return true;
 }
 
@@ -5798,7 +5857,7 @@ if (i > MAX_LINES_TO_READ) {alert("parse_single_non_hive_file_after_column_headi
        var c = lines[i]; // is already split into an array. .split(delim);
        if (c.length != num_cols_in_file) {
          if (c.length === 1 && c[0].trim() === "") continue; // As is an empty line - can happen at end of the input file, eg: file: Diurnal_duplicates_removed.txt.
-         show_reading_and_loading_messages("At line "+(i+1)+" in the input file, the number of columns is "+c.length+", but there are "+num_cols_in_file+" headings in the first line:\n"+c, 'red');
+         show_loading_error("At line "+(i+1)+" in the input file, the number of columns is "+c.length+", but there are "+num_cols_in_file+" headings in the first line:\n"+c);
          return false;
        }
        
@@ -5826,7 +5885,7 @@ if (i > MAX_LINES_TO_READ) {alert("parse_single_non_hive_file_after_column_headi
             // f = c[j].split(':'); // So can optionally have foldchange:pvalue:pct1:pct2
             // if (f[0] === "") {fc_row[j] = pv_row[j] = pct1_row[j] = pct2_row[j] = null;} // So missing values are set to null, not zero.
             fc_row[j+1] = Number(fc); // The j+1 is becuase the first col is gene name.
-            if (isNaN(fc_row[j+1])) {show_reading_and_loading_messages("ERROR: invalid number: '"+fc+"' in line "+(i+1)+ " column "+(jfc+1)+": " +lines[i], 'red'); return false;}
+            if (isNaN(fc_row[j+1])) {show_loading_error("ERROR: invalid number: '"+fc+"' in line "+(i+1)+ " column "+(jfc+1)+": " +lines[i]); return false;}
             // console.log("f",i,j,f);
 //console.log("j=",j,"  jpv_cols[j]=",jpv_cols[j], "c=",c);
             if (has_pvalues_columns) {var jpv = jpv_cols[j]; pv_row[j+1] = c[jpv]==="" ? null : Number(c[jpv]);}
@@ -5879,7 +5938,8 @@ if (i > MAX_LINES_TO_READ) {alert("parse_single_non_hive_file_after_column_headi
 //  else if (col_num > num_files) {alert("ERROR: parse_multiple_files(): col_num="+col_num+" > num_files="+num_files); return false;}
 //  else {alert("ERROR: num_files_read(="+num_files_read+") !== num_files(="+num_files+")"); return false;} // This shouldn't happen.
 
-
+  set_to_default_cursor();
+  
   return true; // for success.
 }
 
@@ -6224,6 +6284,7 @@ function validate_input_data_parameters_for_multiple_files() {
   show_reading_and_loading_messages(tab_instructions, 'green');
   show_display_options_message(tab_instructions, 'green');
   
+  set_to_default_cursor();
   return true; 
 }
 
@@ -6280,7 +6341,7 @@ function parse_multiple_file_data(data, thefilename) {
  
   //var lines = csvToArray(data, delim);
   var lines = csv2arr(data, delim); // returns A single empty row if no data: [["",],]
-  if (lines.length === 0 || (lines.length === 1 && lines[0].length<2)) {show_reading_and_loading_messages("ERROR: parse_multiple_files(): File is empty: "+thefilename, 'red'); return false;} 
+  if (lines.length === 0 || (lines.length === 1 && lines[0].length<2)) {show_loading_error("ERROR: parse_multiple_files(): File is empty: "+thefilename); return false;} 
 
   var headings = lines[0]; // headings should be:   ["","p_val","avg_log2FC","pct.1","pct.2","p_val_adj"]
   var headings_lc = new Array(headings.length);
@@ -6376,7 +6437,8 @@ function parse_multiple_file_data(data, thefilename) {
 
      show_read_input_data_message('<br>&nbsp;<br>Files read successfully.<br>&nbsp;<br>Now <b>click the \'<span style="color: white; background-color:red;">(2) Select ids/species/columns</span>\' tab</b> above.', 'green', true);
      set_select_ids_species_columns_tab_color('red');
-
+     set_to_default_cursor();
+	 
      //alert("num_files_read="+num_files_read);
   }
 }
@@ -6473,7 +6535,7 @@ function initialise_global_data(headings) {
     }
     else {
        fc = Number(arr[i][j_fc]);
-       if (isNaN(fc)) {show_reading_and_loading_messages("ERROR: invalid 'avg_log2FC' number: col_num="+col_num+" :"+arr[i][j_fc]+" in line "+(i+1)+ " column "+(j_fc+1)+": '" +arr[i]+"'", 'red'); return false;}
+       if (isNaN(fc)) {show_loading_error("ERROR: In file "+thefilename+": invalid 'avg_log2FC' number: col_num="+col_num+" :"+arr[i][j_fc]+" in line "+(i+1)+ " column "+(j_fc+1)+": '" +arr[i]+"'"); return false;}
        fc = Math.round(100*fc)/100; // round to 2 decimal places.
 
        if (has_pvalues_columns) {       
@@ -6482,7 +6544,7 @@ function initialise_global_data(headings) {
          if (pvalue === "NA") pvalue = null ; // 1 or 'NA', or NaN ? // null;
          else {
            pvalue = Number(arr[i][j_pvalue]);
-           if (isNaN(pvalue)) {show_reading_and_loading_messages("ERROR: invalid pvalue number: col_num="+col_num+" :"+arr[i][j_pvalue]+" in line "+(i+1)+ " column "+(j_pvalue+1)+": '" +arr[i]+"'", 'red'); return false;}
+           if (isNaN(pvalue)) {show_loading_error("ERROR: In file "+thefilename+": invalid pvalue number: col_num="+col_num+" :"+arr[i][j_pvalue]+" in line "+(i+1)+ " column "+(j_pvalue+1)+": '" +arr[i]+"'"); return false;}
          // pvalue = (pvalue > 0.001) ? Math.round(10000*pvalue)/10000 : (pvalue > 0.000001) ? Math.round(10000000*pvalue)/10000000 : pvalue; // really want significant places.
            pvalue = Number(pvalue.toPrecision(3)); // toPrecision() converts to string
          }  
@@ -6527,7 +6589,7 @@ function initialise_global_data(headings) {
     var fc_row = logfcs[i_row];
     
     // Append the fc value to the row: 
-    if (fc_row.length > col_num) {var msg = "ERROR: Gene '"+gene+"' occurs more than once in file: "+thefilename; show_reading_and_loading_messages(msg,'red'); alert(msg); return false;}    
+    if (fc_row.length > col_num) {show_loading_error("ERROR: Gene '"+gene+"' occurs more than once in file: "+thefilename, true); return false;}    
 
     var pv_row;
     if (has_pvalues_columns) pv_row = logpvs[i_row];
@@ -6536,7 +6598,7 @@ function initialise_global_data(headings) {
       fc_row.push(null);
       if (has_pvalues_columns) pv_row.push(null); 
     }    
-    if (fc_row.length !== col_num) {alert("fc_row.length !== col_num"); return false;}
+    if (fc_row.length !== col_num) {show_loading_error("In file "+thefilename+": fc_row.length="+fc_row.length+" !== col_num"+col_num, true); return false;}
     fc_row.push(fc); // logfcs.
     if (has_pvalues_columns) pv_row.push(pvalue);
 
@@ -6617,10 +6679,11 @@ console.log("parse_multiple_files_after_column_headings_assigned():","showing he
 console.log("parse_multiple_files_after_column_headings_assigned():","finished");
     // draw_heatmap_show_image_size();
   }
-  else if (col_num > num_files) {alert("ERROR: parse_multiple_files(): col_num="+col_num+" > num_files="+num_files); return false;}
-  else {alert("ERROR: num_files_parsed(="+num_files_parsed+") !== num_files(="+num_files+")"); return false;} // This shouldn't happen.
+  else if (col_num > num_files) {show_loading_error("ERROR: parse_multiple_files(): col_num="+col_num+" > num_files="+num_files, true); return false;}
+  else {show_loading_error("ERROR: num_files_parsed(="+num_files_parsed+") !== num_files(="+num_files+")", true); return false;} // This shouldn't happen.
 
 
+  set_to_default_cursor();
   return true; // for success.
 }
 
@@ -6697,9 +6760,20 @@ function file_to_read_clicked(this_elem) {
 }
 
 
+function set_to_default_cursor() {
+  document.body.style.cursor = '';
+}
+
+function show_loading_error(msg, show_alert) {
+  show_reading_and_loading_messages(msg, 'red');
+  if (show_alert) alert(msg);
+  set_to_default_cursor();
+}
 
 // If file has commas within quoted text, or escaped commas, then use the vanillaes/csv parser: https://github.com/vanillaes/csv/blob/main/index.js
 function read_files(this_elem) {
+
+  document.body.style.cursor = 'progress'; // or 'wait'
 
   // alert("read_files().....");
   show_reading_and_loading_messages(""); // to clear messages.
@@ -6712,7 +6786,10 @@ function read_files(this_elem) {
 //return;
 
   
-  if (typeof (FileReader) === "undefined") {show_reading_and_loading_messages("Sorry: This web-browser doesn't support HTML5, so cannot read the data file. Please use a more recent browser version, eg: Chrome 6+, Edge 12+, Firefox 3.6+, IE 10+, Opera 11+, Safari 6+, Vivaldi, or Brave, etc.", 'red'); return false;}
+  if (typeof (FileReader) === "undefined") {
+    show_loading_error("Sorry: This web-browser doesn't support HTML5, so cannot read the data file. Please use a more recent browser version, eg: Chrome 6+, Edge 12+, Firefox 3.6+, IE 10+, Opera 11+, Safari 6+, Vivaldi, or Brave, etc.", true);
+    return false;
+  }
   // For older webrowsers that don't support this RileReader (File System Access API), could use:
   //        browser-fs-access:  https://github.com/GoogleChromeLabs/browser-fs-access
   //    OR: native-file-system-adapter:  https://github.com/jimmywarting/native-file-system-adapter/
@@ -6724,8 +6801,13 @@ function read_files(this_elem) {
   num_files = file_to_read.files.length; // num_files is global.
 
 
-  if (filename_to_read == "" || num_files == 0) {show_read_input_data_message("No file was selected. Please select at least one file.",'red'); return false;}
+  if (filename_to_read == "" || num_files == 0) {
+    show_read_input_data_message("No file was selected. Please select at least one file.",'red'); set_to_default_cursor();
+	return false;
+  }
   // else if (file_to_read.files.length >1) {read_multiple_files(file_to_read); return;}   // should only happen if specify 'multiple' in the input element 
+
+
 
   // {alert("More than one file was selected"); return;}
   // {show_loading_message("More than one file was selected",'red'); return false;} // should only happen if specify 'multiple' in the input element 
@@ -6771,14 +6853,14 @@ function read_files(this_elem) {
 
      console.log(i+": filename_to_read="+filename_to_read+"\nfilename="+filename+"\nfilesize="+filesize+" bytes\nfile_lastmodified="+file_lastmodified);
 
-     if (filesize > 1024*1024*1024) {show_reading_and_loading_messages("This file '"+filename+"' too large - as is larger than 1 GBytes (1024 MBytes).", 'red'); return false;}
+     if (filesize > 1024*1024*1024) {show_loading_error("This file '"+filename+"' too large - as is larger than 1 GBytes (1024 MBytes)."); return false;}
     
      var match = filename_regex.exec(filename); // whereas filename_regex.test(..) just returns true/false
     // filename_to_read (fromfile_to_read.value): "If multiple files are selected, the string represents the first selected file. JavaScript can access the other files through the input's files property.
     // If no file is yet selected, the string is "" (empty).
     // The string is prefixed with C:\fakepath\, to prevent malicious software from guessing the user's file structure."
 
-    if (match === null && !confirm("This file '"+filename+"' doesn't end with .csv, .tsv or .txt.\nAre you sure you have selected the correct file?\nFilename: '"+filename+"'\n(Press 'Yes' to continue, or 'No' to select another file.)") ) return false;
+    if (match === null && !confirm("This file '"+filename+"' doesn't end with .csv, .tsv or .txt.\nAre you sure you have selected the correct file?\nFilename: '"+filename+"'\n(Press 'Yes' to continue, or 'No' to select another file.)") ) {set_to_default_cursor(); return false;}
     console.log("match=",match[0],match[1]);
     
     if (filenames_for_title !== '') filenames_for_title += ", ";
@@ -6791,9 +6873,16 @@ function read_files(this_elem) {
     // Not used from June 2022: var file_to_read_input_button = document.getElementById("file_upload_button");
 
     // As need to access the 'reader.error' then keeping this within this 'read_files()' function
-    reader.onerror = function (evt) {var msg="ERROR: An error occurred while reading file:\n" + reader.error.message; show_reading_and_loading_messages(msg, 'red'); alert(msg); /*file_to_read_input_button.disabled = false;*/ return;}; // needs semi-colon here as starts with:  read.onerror = function (e) {...
+    reader.onerror = function (evt) {
+	  show_loading_error("ERROR: An error occurred while reading file:\n" + reader.error.message, true); /*file_to_read_input_button.disabled = false;*/
+	  return;
+	  }; // needs semi-colon here as starts with:  read.onerror = function (e) {...
 
-    reader.onabort = function (evt) {var msg="ERROR: Aborted reading of the file:\n" + reader.error.message; show_reading_and_loading_messages(msg, 'red'); alert(msg); /*file_to_read_input_button.disabled = false;*/ return;}; // needs semi-colon here as starts with:  read.onabort = function (e) {...
+    reader.onabort = function (evt) {
+	  show_loading_error("ERROR: Aborted reading of the file:\n" + reader.error.message, true);
+	  /*file_to_read_input_button.disabled = false;*/
+	  return;
+	  }; // needs semi-colon here as starts with:  read.onabort = function (e) {...
 
     reader.onloadstart = start_loading_files;
     reader.onprogress  = show_loading_progress;
@@ -8200,6 +8289,11 @@ var offsetY = canvasOffset.top;
   }; // end of: canvas.onmousemove = function(event) ....
   
   
+  // To start the magnify function - Specify the id of the image, and the strength of the magnifier glass:
+  // magnify("my_volcano_plot_canvas", 3); // This was for an image, so I'm not sure if will work with a canvas?
+  // BUT see:  https://labex.io/tutorials/javascript-implement-a-magnifying-glass-effect-using-canvas-445721
+
+
   // Draw the lines:
   //c.stroke();
   //c.fill();  // when done, fill once.
@@ -8213,158 +8307,6 @@ var offsetY = canvasOffset.top;
     
 }
 
-Genesis 17:15, God ordered Abraham  Sarai; her name will be Sarah
-
-
-Meaning: Princess, noblewoman, or queen.Hebrew Root: Derived from the root שרר (s-r-r), which relates to ruling, governing, or commanding.
-
-
-Princess, noblewoman, or queen (Derived from Hebrew word שרר, which relates to ruling, governing, or commanding).
-
-
-self-absorbed, arrogant,
-
-
-6,407 metres over 1.5 acres 
-
-
-In Genesis 17:15, God orders Abraham to change his wife's name from "Sarai" (meaning "my princess" or "my lady"), to "Sarah" (meaning "princess" or "noblewoman").
-
-18.5 m x 14.5 m
-
-268.25
-
-mother goddess named Cybele.
-========
-230 times the size of Newmills church.
-======== 
-St Paul: It is 178 metres long, 30 metres 
-========== 
-Acts 19:27-28,35: Demetrius, a silversmith, says:  "...the temple of the great goddess Artemis may be despised and her magnificence come to the verge of ruin — the very one all of Asia and the world worship.” When they had heard this, they were filled with rage and began to cry out, “Great is Artemis of the Ephesians!” 
-..... Alexander wanted to make his defense to the people. But when they recognized that he was a Jew, they all shouted in unison for about two hours, “Great is Artemis of the Ephesians!”
-..... When the city clerk had calmed the crowd down, he said, “People of Ephesus! What person is there who doesn’t know that the city of the Ephesians is the temple guardian of the great[goddess] Artemis, and of the image that fell from heaven?"
-==========
-cult was prominently female-dominated, with women holding significant leadership roles, including priestesses and temple attendants, providing them with authority not often available in other aspects of Roman-era society.
-============ 
-Artemis was revered in ancient Greece as Soteira (Saviour),
-============  
- 
-Isis was a major ancient Egyptian goddess of magic, fertility, motherhood, and protection, central to the Osiris myth. As the wife of Osiris and mother of Horus, she was considered the divine mother of the pharaoh and a devoted protector who brought her husband back to life. Her worship spread throughout the Greco-Roman world, evolving into a universal goddess figure
-
- 
- Artemis 2 Greek goddess of the Moon, wilderness, and the hunt
- 
- Artemis the Saviour (Soteira)
- 
-
- marbel 
- 
- 
- 
- meteorite 
- 
-
-
-
-=========== 
-
-Co-option to Membership
-62. The Kirk Session shall have power to co-opt a person qualified to be a member of the
-congregational committee:
-62.1 to fill a vacancy in the congregational committee occurring between one election and the
-next; or
-62.2 if the congregational committee considers it desirable to do so for the better
-discharge of its duties.
-===========
-(page 27-28) 
-71. The duties of the congregational committee shall include:
-   71.6 promoting the work of the Church locally and globally, including informing the congregation about that work for which its contributions are sought;
-
-
-
-
-a wealthy trading city, 
-
-The primary deity of ancient Ephesus was Artemis of Ephesus (called 'Diana' by the Romans), mother goddess of fertility, childbirth, and nature,
-
-Temple of Artemis, in Ephesus, was largest temple in the ancient world, and one of the 'Seven Wonders of the Ancient World', 
-
-, which is from the Hebrew word, "Sar", meaning "prince" or "chief"
-
-
-... Artimis the Saviour ....
-
-
-ὑποταγῇ
-
-ὑποταγῇ·
-
-
-peace forty years.
-
-cruelly oppressed
-
-
-In the original Greek and the cultural context of the time, "woman" was a respectful form of address, similar to "Ma'am" or a polite, yet detached, way of speaking.
-
-the Canaanite Woman, the Poor Widow, the Woman with the Alabaster Jar, etc....
-
-
-Even to the ancients, the word "gynai" was equivalent to the contemporary term "madam" and in fact the expression "honorable madam".
-
-"Woman," it is typically used politely, neutrally, or affectionately, often meaning "Ma'am," "Lady," or even "Dear woman" in context.
-
-=======================
-John 2:3-5:
-When the wine ran out, Jesus' mother said to him, "They don't have any wine!"
-"My dear lady, what does it have to do with me?" Jesus asked. "My time hasn't come yet."
-His mother said to the staff "Do whatever he tells you to do!"
-=======================
-
-Studies even show that the brains of women are wired in such a way that they are indeed weaker in a society where competitors meet in slug-fests, but far outperform men in societies that are based on cooperation and the quest for mutual benefit.
-
-====================
-Women tend to be more altruistic than men, previous studies have shown.
-
-As Philippe Tobler, co-author of the new study, sees it, "women put more subjective value on prosocial behavior and men find selfish behavior more valuable."
-https://www.cbsnews.com/philadelphia/news/mens-and-womens-brains-react-differently-when-helping-others-study-says/
-====================
-
-Females, on average, are better than males at putting themselves in others’ shoes and imagining what the other person is thinking or feeling, s
-
-"Searching for answers for why women and men are not equally selfish, he and his colleagues focused on the dopamine system.
-....
-Tobler and his colleagues designed a series of experiments to test how dopamine might influence the behavior of men and women. Fifty-six male and female participants made choices between sharing a financial reward with others or keeping the money for themselves.
-
-Given only a placebo before making decisions, women acted less selfishly than men, choosing to share their money with others. However, when their dopamine systems were disrupted after they received a drug called amisulpride, women acted more selfishly, while men became more generous. Amisulpride is an antipsychotic normally used to treat the symptoms of schizophrenia."
-https://www.cam.ac.uk/research/news/females-perform-better-than-males-on-a-theory-of-mind-test-across-57-countries
-
-====================
-Our results provide some of the first evidence that the well-known phenomenon – that females are on average more empathic than males – is present in wide range of countries across the globe
-David Greenberg
-https://www.cam.ac.uk/research/news/females-perform-better-than-males-on-a-theory-of-mind-test-across-57-countries
-====================
-1 Corinthians 14
-Ancient Greek does not have quotation marks. 
-
-As in all the churches of the saints, 34 the women[k: or your women] should be silent in the churches, for they are not permitted to speak, but are to submit themselves, as the law also says. 35 If they want to learn something, let them ask their own husbands at home, since it is disgraceful for a woman to speak in the church. 36 Or did the word of God originate from you, or did it come to you only?
-
-CSB:
-As in all the churches of the saints, 34 the women[k] should be silent in the churches, for they are not permitted to speak, but are to submit themselves, as the law also says. 35 If they want to learn something, let them ask their own husbands at home, since it is disgraceful for a woman to speak in the church. 36 Or did the word of God originate from you, or did it come to you only?
-====================
-
-
-13 And now abideth faith, hope, charity, these three; but the greatest of these is charity.
-
-KJV:
-34 Let your women keep silence in the churches: for it is not permitted unto them to speak; but they are commanded to be under obedience as also saith the law.
-35 And if they will learn any thing, let them ask their husbands at home: for it is a shame for women to speak in the church.
-36 What? came the word of God out from you? or came it unto you only?
-37 If any man think himself to be a prophet, or spiritual, let him acknowledge that the things that I write unto you are the commandments of the Lord.
-38 But if any man be ignorant, let him be ignorant.
-
-39 Wherefore, brethren, covet to prophesy, and forbid not to speak with tongues.
-40 Let all things be done decently and in order.
 //=========================================================================
 
 // Magnifier: https://www.w3schools.com/HOWTO/howto_js_image_magnifier_glass.asp
@@ -8430,36 +8372,9 @@ function magnify(imgID, zoom) {
   }
 }
 
-// To start the magnify function - Specify the id of the image, and the strength of the magnifier glass:
-magnify("myimage", 3);
-
-<div class="img-magnifier-container">
-  <img id="myimage" src="img_girl.jpg" width="600" height="400" alt="Girl">
-</div>
-
-* {box-sizing: border-box;}
-
-.img-magnifier-container {
-  position: relative;
-}
-
-.img-magnifier-glass {
-  position: absolute;
-  border: 3px solid #000;
-  border-radius: 50%;
-  cursor: none;
-  /* Set the size of the magnifier glass: */
-  width: 100px;
-  height: 100px;
-}
-
 //==========================================================================
-
-
-
 // New gene therapy saved boy's hearing
 //   https://www.youtube.com/shorts/vqseyk5WNEQ
-
 //==========================================================================
 
 
