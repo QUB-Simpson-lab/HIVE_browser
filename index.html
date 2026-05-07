@@ -88,7 +88,7 @@ id="show_heatmap_with_column_names_and_types_button" style="border: 1px solid #0
  .required_span_info {border: 2px solid red; background-color: #fffafa;}
   */
   
-  input:not(:disabled), select:not(:disabled), button:not(:disabled), input[type="file"]:not(:disabled)::file-selector-button {cursor:pointer;} /* background-color: #6495ed; color:white; */
+  input:not(:disabled), select:not(:disabled), button:not(:disabled), input[type="file"]:not(:disabled)::file-selector-button {cursor: url("cursor/bee_hover_64.png") 32 32, pointer;} /* background-color: #6495ed; color:white; */
 
   input[type=button]:not(:disabled):hover, input[type=submit]:not(:disabled):hover, input[type=file]:not(:disabled):hover, input[type=text]:not(:disabled):hover select:not(:disabled):hover, button:not(:disabled):hover, input[type="file"]::file-selector-button:hover {
     /* background-color: #81ecec; */
@@ -111,7 +111,7 @@ id="show_heatmap_with_column_names_and_types_button" style="border: 1px solid #0
     border-radius: 0.2em;
     background-color: #a29bfe;
     transition: 1s;
-	cursor:pointer;
+	cursor: pointer;
   }
 
   input[type="file"]::file-selector-button:hover {
@@ -246,7 +246,7 @@ id="show_heatmap_with_column_names_and_types_button" style="border: 1px solid #0
 
 details.tooltip {
   border-radius: 4px;
-  cursor: pointer;
+  cursor: url("cursor/bee_hover_64.png") 32 32, pointer;
   display: inline-block;
   position: relative;
   transition: 0.15s background linear;
@@ -276,7 +276,7 @@ details.tooltip p {
   font-style: normal;
   font-weight: normal;
   text-align: left;
-  cursor: auto;
+  cursor: url("cursor/bee_hover_64.png") 32 32, auto;
   background: #eee;
   padding: 10px;
   width: 350px;
@@ -305,6 +305,12 @@ details.tooltip[open] p, details.tooltip[open] div {
   animation: animateDown 0.2s linear forwards;
 }
 
+#my_volcano_svg {
+  background-color:white;
+  border: 0;
+  padding: 0;
+  cursor: crosshair;
+} 
 
 #my_volcano_canvas {
   background-color:white;
@@ -394,13 +400,13 @@ details.tooltip[open] p, details.tooltip[open] div {
    
    label.sjb_tab.bottom {display: inline-block; padding: 6px 6px; font-weight: 600; text-align: center; position:sticky; bottom: 0; margin: 0; background: #cccccc;}
 
-   label.sjb_tab:hover {color: #fff; cursor: pointer; box-shadow: 2px -1px #77aaff;}
+   label.sjb_tab:hover {color: #fff;   cursor: url("cursor/bee_hover_64.png") 32 32, pointer; box-shadow: 2px -1px #77aaff;}
 
-   input.sjb_tab:disabled + label.sjb_tab {color: #777; cursor: not-allowed; border: 1px solid #777777;} /* or: cursor:default */
+   input.sjb_tab:disabled + label.sjb_tab {color: #777; cursor: not-allowed; border: 1px solid #777777;} /* or: cursor: default */
 
    input.sjb_tab:not(:disabled) + label.sjb_tab {background: #bbcce0; box-shadow: 2px -1px #77aaff;} /* background: #bbccdd; #39bcfe; */
 
-   input.sjb_tab:checked + label.sjb_tab {background: #365da2 !important; color: #fff; cursor: default; box-shadow: 2px -1px #77aaff;} /* was: background: #ed5a6a for red, but changed to match the dark-blue of the HIVE logo, as red usually indicates an error */
+   input.sjb_tab:checked + label.sjb_tab {background: #365da2 !important; color: #fff; cursor: url("cursor/bee_cursor_64.png") 32 32, pointer; box-shadow: 2px -1px #77aaff;} /* was: background: #ed5a6a for red, but changed to match the dark-blue of the HIVE logo, as red usually indicates an error */
 
    #sjb_tab1:checked ~ .sjb_tab_content #sjb_tab_content1,
    #sjb_tab2:checked ~ .sjb_tab_content #sjb_tab_content2,
@@ -418,6 +424,9 @@ details.tooltip[open] p, details.tooltip[open] div {
    #sjb_tab14:checked ~ .sjb_tab_content #sjb_tab_content14,
    #sjb_tab15:checked ~ .sjb_tab_content #sjb_tab_content15 {display: block;} 
 
+
+body { cursor: url("cursor/bee_cursor_64.png") 32 32, auto; }
+
 /*
 body { cursor: url('data:image/x-icon;base64,AAACAAEAICAQAAAAAADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/+/WADG15wD///8A99alAOetYwA5WnsA9+fGAJze9wBjxucA9+//AMat9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGYAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAYgCQAAAAAAAAAAAAAABmZikACQAAAAAAAAAAAAAAmZlikAAgAAAAAAAAAAAAaAu5likAJgAAAAAAAAAAAGibuZYpAGUAAAAAAAAAAABokJmWZgAUUAAAAAAAAAAAaJmZlhdFF0UAAAAAAAAAAAaIiGBRdRdFAAAAAAAAAAAAZmYAU6UxpQAAAAAAAAAAAAAAAAVQVVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////////////////////////////////////////////////////////////////////////////////////w////4H///8A///wAP//4AD//8AA///AAP//wAB//8AAP//gQD//8MA///bkf//2////5P///+T/////////w=='), auto; }
 */
@@ -425,9 +434,9 @@ body { cursor: url('data:image/x-icon;base64,AAACAAEAICAQAAAAAADoAgAAFgAAACgAAAA
 
 
 /* 32x32  bit: */
-
+/*
 body { cursor: url('data:image/png;base64,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') 16 16, auto; }
-
+*/
 /**  From: https://pixelpanda.ai/free-tools/image-to-base64 /
 
 
@@ -475,36 +484,37 @@ Website: <a href="https://qub-simpson-lab.github.io/HIVE_browser/">https://qub-s
   <td style="vertical-align: middle; border:0; padding:0; margin:0"--><!-- rowspan="4" -->
   <!-- div -->
     <br>&nbsp;<br>
-	<input id="sjb_tab1"  name="sjb_tabs" class="sjb_tab" type="radio" disabled checked="checked" style="position:absolute; left: 0px;"><label class="sjb_tab" id="sjb_tab1_label" for="sjb_tab1"><span style="font-size: 80%; vertical-align: top;">(1)</span> Input data <img src="img/rose_red.png" alt="Rose" style="height: 2rem;"></label>
+	<input id="sjb_tab1" name="sjb_tabs" class="sjb_tab" type="radio" disabled checked="checked"><label class="sjb_tab" id="sjb_tab1_label" for="sjb_tab1"><span style="font-size: 80%; vertical-align: top;">(1)</span> Input data <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/rose_red.png" alt="Rose" style="height: 1.2rem;"></label>
     <br>
-    <br><input id="sjb_tab12" name="sjb_tabs" class="sjb_tab" type="radio"><label class="sjb_tab" for="sjb_tab12"><span style="font-size: 80%">(12)</span> Help/Feedback <img src="img/dahlia.png" alt="Dahlia" style="height: 2rem;"></label>
+    <br>
+	<input id="sjb_tab12" name="sjb_tabs" class="sjb_tab" type="radio"><label class="sjb_tab" id="sjb_tab12_label" for="sjb_tab12"><span style="font-size: 80%">(12)</span> Help/Feedback <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/dahlia.png" alt="Dahlia" style="height: 1.2rem;"></label>
   <!-- /div -->
   
   <!-- td style="vertical-align: middle; border:0; padding:0; margin:0"--><!-- rowspan="4" -->
   <!-- div -->
-    <input id="sjb_tab2"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab2_label" for="sjb_tab2"><span style="font-size: 80%; vertical-align: top;">(2)</span> Select ids/species/columns <img src="img/cherry.png" alt="Cherry" style="height: 2rem;"></label>
+    <input id="sjb_tab2" name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab2_label" for="sjb_tab2"><span style="font-size: 80%; vertical-align: top;">(2)</span> Select ids/species/columns <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/cherry.png" alt="Cherry" style="height: 1.2rem;"></label>
   <!-- /div -->
 
   <!-- td style="vertical-align: middle; border:0; padding:0; margin:0" --><!-- rowspan="4" -->
   <!-- div -->  
-    <input id="sjb_tab3"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab3_label" for="sjb_tab3"><span style="font-size: 80%">(3)</span> Display options <img src="img/daisy.png" alt="Daisy" style="height: 2rem;"></label>
+    <input id="sjb_tab3"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab3_label" for="sjb_tab3"><span style="font-size: 80%">(3)</span> Display options <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/daisy.png" alt="Daisy" style="height: 1.2rem;"></label>
   <!-- /div -->
   <!-- td style="vertical-align: middle; border:0; padding:0; margin:0" -->
   <!-- div -->
-    <input id="sjb_tab4"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab4_label" for="sjb_tab4"><span style="font-size: 80%">(4)</span> UpSet/Venn <img src="img/cornflower.png" alt="Cornflower" style="height: 2rem;"></label>  
-    <br><input id="sjb_tab5"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab5_label" for="sjb_tab5"><span style="font-size: 80%">(5)</span> Filter rows:0 <img src="img/cornflower.png" alt="Cornflower" style="height: 2rem;"></label><!-- This '0' is updated by 'show_num_filtered_rows()' -->
-    <br><input id="sjb_tab11" name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" for="sjb_tab11"><span style="font-size: 80%">(11)</span> Volcano plot <img src="img/cornflower.png" alt="Cornflower" style="height: 2rem;"></label>  
+    <input id="sjb_tab4"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab4_label" for="sjb_tab4"><span style="font-size: 80%">(4)</span> UpSet/Venn <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/cornflower.png" alt="Cornflower" style="height: 1.2rem;"></label>  
+    <br><input id="sjb_tab5"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab5_label" for="sjb_tab5"><span style="font-size: 80%">(5)</span> Filter rows:0 <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/cornflower.png" alt="Cornflower" style="height: 1.2rem;"></label><!-- This '0' is updated by 'show_num_filtered_rows()' -->
+    <br><input id="sjb_tab11" name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" for="sjb_tab11"><span style="font-size: 80%">(11)</span> Volcano plot <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/cornflower.png" alt="Cornflower" style="height: 1.2rem;"></label>  
   <!-- /div -->
   <!-- td style="vertical-align: middle; border:0; padding:0; margin:0" --><!-- rowspan="4" -->
   <!-- div -->
-    <input id="sjb_tab6"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab6_label" for="sjb_tab6"><span style="font-size: 80%">(6)</span> Selected genes:0 <img src="img/cornflower.png" alt="Cornflower" style="height: 2rem;"></label><!-- This '0' is updated by 'show_selected_genes()' -->
+    <input id="sjb_tab6"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab6_label" for="sjb_tab6"><span style="font-size: 80%">(6)</span> Selected genes:0 <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/cornflower.png" alt="Cornflower" style="height: 1.2rem;"></label><!-- This '0' is updated by 'show_selected_genes()' -->
   <!-- /div -->
   <!-- td style="vertical-align: middle; border:0; padding:0; margin:0" -->
   <!-- div -->
-    <input id="sjb_tab8"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab8_label" for="sjb_tab8"><span style="font-size: 80%">(8)</span> STRING <img src="img/cornflower.png" alt="Cornflower" style="height: 2rem;"></label>
-    <br><input id="sjb_tab7"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab7_label" for="sjb_tab7"><span style="font-size: 80%">(7)</span> g:Profiler <img src="img/cornflower.png" alt="Cornflower" style="height: 2rem;"></label>
-    <br><input id="sjb_tab9"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab9_label" for="sjb_tab9"><span style="font-size: 80%">(9)</span> DAVID <img src="img/cornflower.png" alt="Cornflower" style="height: 2rem;"></label>  
-    <br><input id="sjb_tab10" name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab10_label" for="sjb_tab10"><span style="font-size: 80%">(10)</span> Heatmap image <img src="img/cornflower.png" alt="Cornflower" style="height: 2rem;"></label>
+    <input id="sjb_tab8"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab8_label" for="sjb_tab8"><span style="font-size: 80%">(8)</span> STRING <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/cornflower.png" alt="Cornflower" style="height: 1.2rem;"></label>
+    <br><input id="sjb_tab7"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab7_label" for="sjb_tab7"><span style="font-size: 80%">(7)</span> g:Profiler <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/cornflower.png" alt="Cornflower" style="height: 1.2rem;"></label>
+    <br><input id="sjb_tab9"  name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab9_label" for="sjb_tab9"><span style="font-size: 80%">(9)</span> DAVID <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/cornflower.png" alt="Cornflower" style="height: 1.2rem;"></label>  
+    <br><input id="sjb_tab10" name="sjb_tabs" class="sjb_tab" type="radio" disabled><label class="sjb_tab" id="sjb_tab10_label" for="sjb_tab10"><span style="font-size: 80%">(10)</span> Heatmap image <img src="https://github.com/QUB-Simpson-lab/HIVE_browser/img/cornflower.png" alt="Cornflower" style="height: 1.2rem;"></label>
   <!-- /div -->
  <!-- /tr>
  </table -->
@@ -1699,13 +1709,19 @@ Network flavor: <select id="stringdb_network_flavor" name="network_flavor" oncha
 
 <tr id="create_volcano_plot_table_row"><td> <!-- style="display:none;" -->
 
+<!--  style="display:none; -->
+<table style="border:0; padding:0; margin:0">
+ <tr style="border:0; padding:0; margin:0">
+ <td style="border:0; padding:0; margin:0; vertical-align: top;"> 
+
+<p><label for="download_volcano_font_size">Font height: </label>
+
 <!--
 <p><label>Rows to plot: <select id="download_heatmap_rows_to_draw" onchange="clear_heatmap_show_image_size();"><option value="byfilter" selected>As selected by the 'Filter genes' above</option><option value="bycheckbox">As chosen by the checkboxes in left column below (so are in the genelist above)</option><option value="all">All rows</option></select></label></p>
 <p><label>Columns to plot (not implemented): <select id="heatmap_images_columns_select" onchange="clear_heatmap_show_image_size();"><option value="allcolumns" selected onchange="show_hide_select_column_checkboxes()">All columns</option><option value="selectedcolumns">Select the columns to plot</option></select></label>
 <br><span id="heatmap_image_select_columns_span" style="display:none"></span></p>
 -->
 
-<p><label for="download_volcano_font_size">Font height: </label>
 <select id="download_volcano_font_size" onchange="clear_volcano_show_image_size();">
 <option value="7">7</option>
 <option value="8">8</option>
@@ -1718,11 +1734,6 @@ Network flavor: <select id="stringdb_network_flavor" name="network_flavor" oncha
 <option value="15">15</option>
 </select> pixels.</p>
 
-
-<!--  style="display:none; -->
-<table style="border:0; padding:0; margin:0">
- <tr style="border:0; padding:0; margin:0">
- <td style="border:0; padding:0; margin:0; vertical-align: top;"> 
 
  <label for="volcano_plot_data_column_select">Select <b>Cell-type/cluster :<br> Time-point/condition</b></label><br>
  <select id="volcano_plot_data_column_select" multiple size="2" onchange="draw_volcano_plot();">
@@ -2602,7 +2613,7 @@ function set_fc_in_celltype_checkboxes() {
   for (var j=0; j<celltypes.length; j++) { // j correctly starts at zero here.  Default td padding is padding: 5px 10px;
     html += ' <tr><td style="text-align:left; border-radius:0; padding: 3px 5px;" onclick="fc_in_celltype_checkbox_clicked( \'fc_in_celltype_cb_'+j+'\',event);">\n' +
             '  <input type="checkbox" id="fc_in_celltype_cb_'+j+'" name="fc_in_celltype_checkboxes" value="'+celltypes[j]+'" checked onclick="fc_in_celltype_checkbox_clicked(this,event);">' +
-            '<label for="fc_in_celltype_cb_'+j+'" onclick="event.stopPropagation();" style="user-select:none; cursor:pointer;">'+celltypes[j]+'</label>' +
+            '<label for="fc_in_celltype_cb_'+j+'" onclick="event.stopPropagation();" style="user-select:none;   cursor: url("cursor/bee_hover_64.png") 32 32, pointer;">'+celltypes[j]+'</label>' +
             ' </td></tr>\n';
   }
   document.getElementById('celltypes_tbody').innerHTML = html;
@@ -2614,7 +2625,7 @@ function set_fc_at_time_checkboxes() {
   for (var j=0; j<times.length; j++) { // j correctly starts at zero here.  Default td padding is padding: 5px 10px;
     html += ' <tr><td style="text-align:left; border-radius:0; padding: 3px 5px;" onclick="fc_at_time_checkbox_clicked( \'fc_at_time_cb_'+j+'\', event);">\n' +
             '  <input type="checkbox" id="fc_at_time_cb_'+j+'" name="fc_at_time_checkboxes" value="'+times[j]+'" checked onclick="fc_at_time_checkbox_clicked(this,event);">' +
-            '<label for="fc_at_time_cb_'+j+'" onclick="event.stopPropagation();" style="user-select:none; cursor:pointer;">'+times[j]+'</label>\n' +
+            '<label for="fc_at_time_cb_'+j+'" onclick="event.stopPropagation();" style="user-select:none;   cursor: url("cursor/bee_hover_64.png") 32 32, pointer;">'+times[j]+'</label>\n' +
             ' </td></tr>\n';
   }
   document.getElementById('times_tbody').innerHTML = html;
@@ -2739,7 +2750,7 @@ function set_fc_in_celltype_and_time_checkboxes() {
   for (var j=1; j<head1.length; j++) {
     // <tr><td ... onclick="fc_in_celltype_and_time_checkbox_clicked(\'fc_in_celltype_and_time_cb_'+j+'\') 
     html += ' <input type="checkbox" id="fc_in_celltype_and_time_cb_'+j+'" name="fc_in_celltype_and_time_checkboxes" value="'+j+'" checked onclick="fc_in_celltype_and_time_checkbox_clicked(this,event);">' +
-            '<label for="fc_in_celltype_and_time_cb_'+j+'" onclick="event.stopPropagation();" style="user-select:none; cursor:pointer;">'+head1[j]+' : '+head2[j]+'</label><br>\n';
+            '<label for="fc_in_celltype_and_time_cb_'+j+'" onclick="event.stopPropagation();" style="user-select:none; cursor: url("cursor/bee_hover_64.png") 32 32, pointer;">'+head1[j]+' : '+head2[j]+'</label><br>\n';
   
   }  // or should I use 'onchange=' instead of onclick=...
   document.getElementById("fc_in_celltype_and_time_checkboxes_td").innerHTML = html;
@@ -6837,7 +6848,7 @@ function set_cursor_busy() {
 }
 
 function set_cursor_default() {
-  document.body.style.cursor = '';
+  document.body.style.cursor = '';  // 'url("cursor/bee_hover_64.png") 32 32, pointer';
 }
 
 
